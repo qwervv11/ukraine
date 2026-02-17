@@ -1,4 +1,4 @@
-/* Базові змінні для точного співпадіння кольорів */
+/* #змінні */
 :root {
     --color-red: #e53935;
     --color-blue: #1e88e5;
@@ -9,9 +9,8 @@
     --color-gray: #555555;
 }
 
-/* ORNAMENT OVERLAY — see hero-section styles at bottom */
 
-/* SVG ICON STYLING */
+/* #іконки */
 .fact-icon svg,
 .hero-image svg,
 .casualty-icon svg {
@@ -72,7 +71,7 @@
     letter-spacing: 2px;
 }
 
-/* Скидання та базові стилі */
+/* #база */
 * {
     margin: 0;
     padding: 0;
@@ -98,7 +97,7 @@ html {
     padding: 0 40px;
 }
 
-/* HEADER */
+/* #шапка */
 .main-header {
     position: fixed;
     top: 0;
@@ -171,14 +170,14 @@ html {
     width: 100%;
 }
 
-/* SLIDE BASE */
+/* #слайд */
 .slide {
     min-height: 100vh;
     padding: 120px 40px 80px;
     position: relative;
 }
 
-/* HERO SLIDE */
+/* #герой */
 .hero-slide {
     display: flex;
     align-items: center;
@@ -214,7 +213,6 @@ html {
     overflow-wrap: break-word;
 }
 
-/* Smaller font for half-width sections (text + image side by side) */
 .image-text-slide .huge-text {
     font-size: clamp(36px, 5.5vw, 100px);
 }
@@ -285,12 +283,12 @@ html {
     pointer-events: none;
 }
 
-/* ACCENT GREEN */
+/* #акцент */
 .accent-green {
     color: var(--color-green);
 }
 
-/* TEXT CONTENT SLIDE */
+/* #текст */
 .text-content-slide {
     background: #1a1a1a;
 }
@@ -316,7 +314,7 @@ html {
     max-width: 800px;
 }
 
-/* TIMELINE */
+/* #хронологія */
 .timeline-slide {
     background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
 }
@@ -429,7 +427,7 @@ html {
     color: #cccccc;
 }
 
-/* IMAGE TEXT SLIDE */
+/* #фото-текст */
 .image-text-slide {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -453,7 +451,7 @@ html {
     padding: 40px;
 }
 
-/* FIGMA BOX */
+/* #бокс */
 .figma-box {
     position: relative;
     border: 2px solid var(--color-green);
@@ -522,7 +520,7 @@ html {
     right: -6px;
 }
 
-/* DARK SLIDE */
+/* #темний */
 .dark-slide {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     padding: 120px 40px;
@@ -590,7 +588,7 @@ html {
     border: 2px solid var(--color-gray);
 }
 
-/* VIDEO SLIDE */
+/* #відео */
 .video-slide {
     background: #1a1a1a;
 }
@@ -643,7 +641,7 @@ html {
     padding: 0 20px 20px;
 }
 
-/* QUOTES SLIDE */
+/* #цитати */
 .quotes-slide {
     background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
 }
@@ -691,7 +689,7 @@ html {
     text-align: right;
 }
 
-/* GALLERY SLIDE */
+/* #галерея */
 .gallery-slide {
     background: #0a0a0a;
 }
@@ -749,7 +747,6 @@ html {
     transform: translateY(0);
 }
 
-/* FACTS SLIDE */
 .facts-slide {
     background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
 }
@@ -803,7 +800,6 @@ html {
     color: #aaaaaa;
 }
 
-/* MODERN WAR SLIDE */
 .modern-war-slide {
     background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
 }
@@ -876,7 +872,6 @@ html {
 }
 
 
-/* Comparison Grid (Desktop Base) */
 .comparison-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -911,7 +906,6 @@ html {
     font-size: 20px;
 }
 
-/* Casualties Grid (Desktop Base) */
 .casualties-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -935,7 +929,6 @@ html {
     margin: 10px 0;
 }
 
-/* Support Countries (Desktop Base) */
 .support-countries {
     display: flex;
     flex-wrap: wrap;
@@ -959,7 +952,6 @@ html {
     letter-spacing: 10px;
 }
 
-/* MAP SLIDE */
 .map-slide {
     background: #1a1a1a;
 }
@@ -1024,7 +1016,6 @@ html {
     flex-shrink: 0;
 }
 
-/* HEROES SLIDE */
 .heroes-slide {
     background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
 }
@@ -1076,7 +1067,6 @@ html {
     color: #aaaaaa;
 }
 
-/* FOOTER */
 .main-footer {
     background: #0a0a0a;
     border-top: 3px solid var(--color-green);
@@ -1153,7 +1143,6 @@ html {
     margin: 5px 0;
 }
 
-/* ===== HAMBURGER MENU ===== */
 .hamburger {
     display: none;
     background: none;
@@ -1190,9 +1179,7 @@ html {
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
-/* ===== RESPONSIVE ===== */
 
-/* --- Tablet landscape --- */
 @media (max-width: 1200px) {
 
     .facts-grid,
@@ -1209,7 +1196,6 @@ html {
     }
 }
 
-/* --- Tablet portrait --- */
 @media (max-width: 992px) {
 
     .text-columns,
@@ -1268,10 +1254,8 @@ html {
     }
 }
 
-/* --- Mobile --- */
 @media (max-width: 768px) {
 
-    /* Header & hamburger */
     .main-header {
         padding: 10px 16px;
         flex-wrap: wrap;
@@ -1326,7 +1310,6 @@ html {
         display: none;
     }
 
-    /* Container & slide */
     .container {
         padding: 0 16px;
         max-width: 100vw;
@@ -1338,7 +1321,6 @@ html {
         max-width: 100vw;
     }
 
-    /* Typography */
     .huge-text {
         font-size: 36px;
         letter-spacing: -1px;
@@ -1368,14 +1350,12 @@ html {
         margin-top: 10px;
     }
 
-    /* CTA button */
     .cta-button {
         padding: 14px 28px;
         font-size: 14px;
         margin-top: 28px;
     }
 
-    /* Text columns */
     .text-columns {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1387,7 +1367,6 @@ html {
         line-height: 1.7;
     }
 
-    /* Timeline */
     .timeline {
         margin: 40px auto;
         padding-left: 30px;
@@ -1421,7 +1400,6 @@ html {
         font-size: 14px;
     }
 
-    /* Image-text slide */
     .image-text-slide {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1446,7 +1424,6 @@ html {
         font-size: 15px;
     }
 
-    /* Holodomor stats */
     .holodomor-content {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1480,12 +1457,10 @@ html {
         max-height: 280px;
     }
 
-    /* Dark slide */
     .dark-slide {
         padding: 90px 16px 50px;
     }
 
-    /* Video grid */
     .video-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1502,7 +1477,6 @@ html {
         padding: 0 16px 16px;
     }
 
-    /* Quotes */
     .quotes-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1525,7 +1499,6 @@ html {
         font-size: 14px;
     }
 
-    /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
@@ -1545,7 +1518,6 @@ html {
         background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
     }
 
-    /* Facts */
     .facts-grid {
         grid-template-columns: 1fr 1fr;
         gap: 16px;
@@ -1573,7 +1545,6 @@ html {
         font-size: 12px;
     }
 
-    /* Modern war */
     .war-event {
         padding: 20px;
         margin-bottom: 20px;
@@ -1619,7 +1590,6 @@ html {
         letter-spacing: 6px;
     }
 
-    /* Map */
     .map-container {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1638,7 +1608,6 @@ html {
         font-size: 18px;
     }
 
-    /* Heroes */
     .heroes-grid {
         grid-template-columns: 1fr 1fr;
         gap: 16px;
@@ -1666,7 +1635,6 @@ html {
         font-size: 12px;
     }
 
-    /* ===== VERTICAL CARD LAYOUTS ===== */
 
 
 
@@ -1705,7 +1673,6 @@ html {
         font-size: 13px;
     }
 
-    /* Comparison: vertical stack */
     .comparison-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
@@ -1713,14 +1680,12 @@ html {
         margin-top: 24px;
     }
 
-    /* Attestation: vertical stack */
     .attest-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 16px;
     }
 
-    /* Infographic: vertical cards */
     .infographic-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
@@ -1799,7 +1764,6 @@ html {
 
 
 
-    /* Casualties: vertical stack (1 column) */
     .casualties-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
@@ -1846,7 +1810,6 @@ html {
         font-size: 14px;
     }
 
-    /* Country support: vertical stack */
     .support-countries {
         display: flex !important;
         flex-direction: column !important;
@@ -1901,7 +1864,6 @@ html {
         border-radius: 6px;
     }
 
-    /* Quiz */
     .quiz-container {
         padding: 24px 16px;
         margin: 30px auto;
@@ -1934,7 +1896,6 @@ html {
         font-size: 15px;
     }
 
-    /* CTA slide */
     .cta-slide {
         min-height: 60vh;
     }
@@ -1971,7 +1932,6 @@ html {
         font-size: 20px;
     }
 
-    /* Attestation */
     .attest-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2039,7 +1999,6 @@ html {
         margin-top: 30px;
     }
 
-    /* Footer */
     .main-footer {
         padding: 40px 16px 20px;
     }
@@ -2057,7 +2016,6 @@ html {
         font-size: 12px;
     }
 
-    /* Scroll to top */
     .scroll-to-top {
         width: 48px;
         height: 48px;
@@ -2070,7 +2028,6 @@ html {
         height: 20px;
     }
 
-    /* Loading screen */
     .loading-content h2 {
         font-size: 24px;
         letter-spacing: 2px;
@@ -2086,7 +2043,6 @@ html {
     }
 }
 
-/* --- Small phones --- */
 @media (max-width: 480px) {
     .huge-text {
         font-size: 30px;
@@ -2184,7 +2140,6 @@ html {
     }
 }
 
-/* ===== ATTESTATION SECTION ===== */
 .attestation-slide {
     background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
 }
@@ -2208,7 +2163,6 @@ html {
     color: var(--color-yellow);
 }
 
-/* File cards grid */
 .attest-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2298,7 +2252,6 @@ html {
     color: var(--color-black);
 }
 
-/* Program card */
 .attest-program-card {
     background: #2a2a2a;
     border: 2px solid var(--color-blue);
@@ -2371,7 +2324,6 @@ html {
     box-shadow: 0 8px 24px rgba(201, 237, 161, 0.3);
 }
 
-/* Media section */
 .attest-media-section {
     margin-top: 30px;
 }
@@ -2429,7 +2381,6 @@ html {
     display: block;
 }
 
-/* LIGHTBOX */
 .lightbox-overlay {
     display: none;
     position: fixed;
@@ -2474,7 +2425,6 @@ html {
     color: var(--color-green);
 }
 
-/* SMOOTH ANIMATIONS */
 @keyframes slideInLeft {
     from {
         opacity: 0;
@@ -2499,12 +2449,10 @@ html {
     }
 }
 
-/* Scroll animations */
 .slide>* {
     animation: fadeInUp 0.8s ease-out;
 }
 
-/* COMPARISON SLIDE */
 .comparison-slide {
     background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
 }
@@ -2591,7 +2539,6 @@ html {
     margin: 0;
 }
 
-/* INFOGRAPHIC SLIDE */
 .infographic-slide {
     background: #1a1a1a;
 }
@@ -2759,7 +2706,6 @@ html {
     transition: width 1s ease;
 }
 
-/* QUIZ SLIDE */
 .quiz-slide {
     background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
 }
@@ -2866,7 +2812,6 @@ html {
     }
 }
 
-/* CTA SLIDE */
 .cta-slide {
     background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
     min-height: 80vh;
@@ -2953,9 +2898,7 @@ html {
     margin: 0;
 }
 
-/* (responsive additions consolidated above) */
 
-/* SCROLL TO TOP BUTTON */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -2995,7 +2938,6 @@ html {
     color: var(--color-black);
 }
 
-/* LOADING SCREEN */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -3049,7 +2991,6 @@ html {
     margin: 0;
 }
 
-/* PROGRESS BAR */
 .reading-progress {
     position: fixed;
     top: 0;
@@ -3062,7 +3003,6 @@ html {
     transition: transform 0.2s ease;
 }
 
-/* SELECTION STYLING */
 ::selection {
     background: var(--color-green);
     color: var(--color-black);
@@ -3073,7 +3013,6 @@ html {
     color: var(--color-black);
 }
 
-/* SCROLLBAR STYLING */
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -3091,12 +3030,10 @@ html {
     background: var(--color-yellow);
 }
 
-/* SMOOTH TRANSITIONS */
 * {
     scroll-behavior: smooth;
 }
 
-/* ACCESSIBILITY */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -3109,7 +3046,6 @@ html {
     border-width: 0;
 }
 
-/* ===== QUIZ ENHANCEMENTS ===== */
 .quiz-progress {
     width: 100%;
     height: 6px;
@@ -3229,7 +3165,6 @@ html {
     color: #111;
 }
 
-/* ===== MAP MODAL ===== */
 .map-modal-overlay {
     position: fixed;
     top: 0;
@@ -3309,7 +3244,6 @@ html {
     color: var(--color-green);
 }
 
-/* ===== FONT AWESOME ICON SIZING ===== */
 .hero-image i {
     font-size: 48px;
     color: var(--color-green);
@@ -3330,7 +3264,6 @@ html {
     color: #e53935;
 }
 
-/* ===== LEAFLET MAP CUSTOMIZATION ===== */
 .leaflet-city-marker {
     background: none !important;
     border: none !important;
@@ -3363,7 +3296,6 @@ html {
     vertical-align: middle;
 }
 
-/* ===== ORNAMENT OVERLAY (hero full-screen) ===== */
 .hero-slide {
     position: relative;
     overflow: hidden;
@@ -3384,7 +3316,6 @@ html {
     z-index: 2;
 }
 
-/* PRINT STYLES */
 @media print {
 
     .main-header,

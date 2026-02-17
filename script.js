@@ -1,4 +1,4 @@
-// ===== HAMBURGER MENU TOGGLE =====
+// #меню
 const hamburger = document.querySelector('.hamburger');
 const mainHeader = document.querySelector('.main-header');
 
@@ -10,7 +10,6 @@ if (hamburger && mainHeader) {
         hamburger.setAttribute('aria-expanded', !expanded);
     });
 
-    // Close menu when clicking outside header
     document.addEventListener('click', (e) => {
         if (!mainHeader.contains(e.target) && mainHeader.classList.contains('nav-open')) {
             hamburger.classList.remove('active');
@@ -20,7 +19,7 @@ if (hamburger && mainHeader) {
     });
 }
 
-// Smooth scroll behavior + close mobile menu on nav click
+// #скрол
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -31,7 +30,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
-        // Close mobile nav if open
         if (hamburger && mainHeader) {
             hamburger.classList.remove('active');
             mainHeader.classList.remove('nav-open');
@@ -40,7 +38,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header background change on scroll
+// #хедер
 let lastScroll = 0;
 const header = document.querySelector('.main-header');
 
@@ -58,7 +56,7 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for animations
+// #анімація
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -73,28 +71,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all timeline items
-document.querySelectorAll('.timeline-item').forEach(item => {
-    observer.observe(item);
-});
 
-// Observe fact cards
-document.querySelectorAll('.fact-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'all 0.6s ease';
-    observer.observe(card);
-});
 
-// Observe hero cards
-document.querySelectorAll('.hero-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'all 0.6s ease';
-    observer.observe(card);
-});
 
-// ===== LEAFLET MAP INITIALIZATION =====
+// #карта
 if (document.getElementById('leafletMap')) {
     const isMobile = window.innerWidth <= 768;
     const map = L.map('leafletMap', {
@@ -104,14 +84,12 @@ if (document.getElementById('leafletMap')) {
         scrollWheelZoom: false
     });
 
-    // Dark-themed tile layer to match site design
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 19
     }).addTo(map);
 
-    // City markers on the Leaflet map
     const cities = [
         { name: 'Київ', lat: 50.4501, lng: 30.5234, color: '#fdd835' },
         { name: 'Харків', lat: 49.9935, lng: 36.2304, color: '#e53935' },
@@ -155,7 +133,7 @@ if (document.getElementById('leafletMap')) {
     });
 }
 
-// Counter animation for stats
+// #лічильник
 const animateCounter = (element, target) => {
     let current = 0;
     const increment = target / 100;
@@ -170,7 +148,6 @@ const animateCounter = (element, target) => {
     }, 20);
 };
 
-// Observe stat numbers
 const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.animated) {
@@ -197,13 +174,13 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
     statObserver.observe(stat);
 });
 
-// Gallery lightbox effect
+// #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
-        // Create lightbox
+
         const lightbox = document.createElement('div');
         lightbox.style.position = 'fixed';
         lightbox.style.top = '0';
@@ -255,14 +232,13 @@ document.querySelectorAll('.gallery-item').forEach(item => {
             lightbox.remove();
         });
 
-        // Prevent image click from closing
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
     });
 });
 
-// Quote cards animation on scroll
+// #картки
 const quoteObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -281,7 +257,7 @@ document.querySelectorAll('.quote-card').forEach(card => {
     quoteObserver.observe(card);
 });
 
-// Video items animation
+// #відео
 const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -300,7 +276,6 @@ document.querySelectorAll('.video-item').forEach(item => {
     videoObserver.observe(item);
 });
 
-// War events animation
 const warObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -319,7 +294,7 @@ document.querySelectorAll('.war-event').forEach(event => {
     warObserver.observe(event);
 });
 
-// Parallax effect for hero section
+// #паралакс
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const heroContent = document.querySelector('.hero-content');
@@ -335,7 +310,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add active class to nav links based on scroll position
+// #навігація
 const sections = document.querySelectorAll('.slide[id]');
 const navLinks = document.querySelectorAll('.main-header nav a');
 
@@ -357,7 +332,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Hero title fade-in animation (typing effect removed — it broke HTML tags)
+// #заголовок
 const heroTitle = document.querySelector('.hero-slide .huge-text');
 if (heroTitle) {
     heroTitle.style.opacity = '0';
@@ -369,7 +344,7 @@ if (heroTitle) {
     }, 300);
 }
 
-// Add floating animation to badge
+// #значок
 const badge = document.querySelector('.badge');
 if (badge) {
     setInterval(() => {
@@ -380,7 +355,7 @@ if (badge) {
     }, 2000);
 }
 
-// Easter egg - Konami code
+// #пасхалка
 let konamiCode = [];
 const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
@@ -397,7 +372,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Add CSS for rainbow animation
 const style = document.createElement('style');
 style.textContent = `
 @keyframes rainbow {
@@ -418,7 +392,7 @@ document.head.appendChild(style);
 console.log('🇺🇦 Слава Україні! Героям Слава! 🇺🇦');
 console.log('Сайт повністю завантажено та готовий до використання!');
 
-// ========== QUIZ ENGINE (10 questions) ==========
+// #вікторина
 const quizQuestions = [
     { q: 'Коли було знищено Запорізьку Січ?', opts: ['1709 рік', '1775 рік', '1654 рік', '1876 рік'], correct: 1, info: 'Запорізьку Січ знищено у 1775 році за наказом Катерини II.' },
     { q: 'Коли почалася повномасштабна війна Росії проти України?', opts: ['2014', '2020', '24 лютого 2022', '1 березня 2022'], correct: 2, info: 'Повномасштабне вторгнення почалося 24 лютого 2022 року.' },
@@ -544,7 +518,7 @@ function showQuizResult() {
     }
 })();
 
-// ========== MAP MODAL SYSTEM ==========
+// #модалка
 const mapEventData = {
     'Київ': { title: 'Київ — столиця України', body: '<p>Столиця України з понад 1500-річною історією.</p><p>У 2022 році російські війська намагалися захопити Київ за 3 дні, але зазнали нищівної поразки. Битва за Київ стала символом незламності українського духу.</p><p><strong>Ключові події:</strong> Революція Гідності (2014), Оборона Києва (2022), Бучанська різанина</p>' },
     'Харків': { title: 'Харків — місто-герой', body: '<p>Друге за розміром місто України.</p><p>З 2022 року Харків під постійними обстрілами російської армії. У вересні 2022 ЗСУ провели блискучий контрнаступ, звільнивши Харківщину.</p>' },
@@ -580,7 +554,7 @@ document.getElementById('mapModalOverlay')?.addEventListener('click', function (
 });
 document.getElementById('mapModalClose')?.addEventListener('click', closeMapModal);
 
-// Facts carousel
+// #карусель
 let currentFactIndex = 0;
 const factItems = document.querySelectorAll('.fact-item');
 
@@ -592,7 +566,7 @@ if (factItems.length > 0) {
     }, 5000);
 }
 
-// Animate infographic bars on scroll
+// #інфографіка
 const infoObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -613,7 +587,7 @@ document.querySelectorAll('.info-block').forEach(block => {
     infoObserver.observe(block);
 });
 
-// Comparison cards animation
+// #порівняння
 const comparisonObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -632,7 +606,6 @@ document.querySelectorAll('.comparison-card').forEach(card => {
     comparisonObserver.observe(card);
 });
 
-// Add hover effect to timeline bar segments
 const barEventData = {
     '1654': { title: 'Переяславська рада — 1654', body: '<p>У 1654 році Богдан Хмельницький уклав угоду з Московією для спільної боротьби проти Польщі.</p><p>Московія використала цю угоду як привід для поступового поглинання української автономії, перетворивши козацьку державу на складову Російської імперії.</p>' },
     '1709': { title: 'Полтавська битва — 1709', body: '<p>Гетьман Іван Мазепа разом зі шведським королем Карлом XII виступив проти Петра I.</p><p>Поразка під Полтавою стала катастрофою для української державності — Москва знищила Батурин, столицю гетьманату, вбивши тисячі мирних жителів.</p>' },
@@ -651,7 +624,7 @@ document.querySelectorAll('.bar-segment').forEach(segment => {
     });
 });
 
-// Animate casualty numbers
+// #втрати
 const casualtyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.animated) {
@@ -682,7 +655,7 @@ document.querySelectorAll('.casualty-item').forEach(item => {
     casualtyObserver.observe(item);
 });
 
-// Scroll to top button
+// #вгору
 const scrollToTopBtn = document.getElementById('scrollToTop');
 
 if (scrollToTopBtn) {
@@ -705,7 +678,6 @@ if (scrollToTopBtn) {
 
 
 
-// Reading progress bar
 const progressBar = document.createElement('div');
 progressBar.className = 'reading-progress';
 document.body.appendChild(progressBar);
@@ -717,7 +689,6 @@ window.addEventListener('scroll', () => {
     progressBar.style.transform = `scaleX(${scrolled})`;
 });
 
-// Add smooth reveal animation to all sections
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -731,7 +702,6 @@ document.querySelectorAll('.slide').forEach(slide => {
     revealObserver.observe(slide);
 });
 
-// Add CSS for reveal animation
 const revealStyle = document.createElement('style');
 revealStyle.textContent = `
 .reveal-section {
@@ -747,7 +717,7 @@ revealStyle.textContent = `
 `;
 document.head.appendChild(revealStyle);
 
-// Keyboard navigation
+// #клавіатура
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Home') {
         e.preventDefault();
@@ -758,7 +728,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Log statistics
+// #статистика
 console.log('📊 Статистика сайту:');
 console.log('- Розділів:', document.querySelectorAll('.slide').length);
 console.log('- Подій у таймлайні:', document.querySelectorAll('.timeline-item').length);
@@ -767,7 +737,7 @@ console.log('- Фотографій у галереї:', document.querySelectorA
 console.log('- Карток героїв:', document.querySelectorAll('.hero-card').length);
 console.log('- Фактів:', document.querySelectorAll('.fact-card').length);
 
-// ===== LIGHTBOX FOR INFOGRAPHIC IMAGES =====
+
 function openLightbox(src) {
     const overlay = document.getElementById('lightboxOverlay');
     const img = document.getElementById('lightboxImage');
