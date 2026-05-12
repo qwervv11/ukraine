@@ -970,7 +970,7 @@
     <!-- #модалка -->
     <div class="map-modal-overlay" id="mapModalOverlay">
         <div class="map-modal">
-            <button class="map-modal-close" id="mapModalClose"><i class="fa-solid fa-xmark"></i></button>
+            <button class="map-modal-close" id="mapModalClose" aria-label="Закрити карту"><i class="fa-solid fa-xmark"></i></button>
             <h3 class="map-modal-title" id="mapModalTitle">&nbsp;</h3>
             <div class="map-modal-body" id="mapModalBody"></div>
         </div>
@@ -979,7 +979,7 @@
 
     <!-- #лайтбокс -->
     <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Закрити зображення">×</button>
         <img id="lightboxImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             alt="">
     </div>
@@ -1067,7 +1067,7 @@
     </footer>
 
     <!-- #вгору -->
-    <button id="scrollToTop" class="scroll-to-top" title="Повернутися вгору">
+    <button id="scrollToTop" class="scroll-to-top" title="Повернутися вгору" aria-label="Повернутися вгору">
         <i class="fa-solid fa-chevron-up"></i>
     </button>
 
