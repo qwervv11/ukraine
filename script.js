@@ -212,8 +212,11 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxCaption.style.textAlign = 'center';
         lightboxCaption.style.fontWeight = '600';
 
-        const closeBtn = document.createElement('div');
+        const closeBtn = document.createElement('button');
         closeBtn.textContent = '✕';
+        closeBtn.setAttribute('aria-label', 'Закрити');
+        closeBtn.style.background = 'none';
+        closeBtn.style.border = 'none';
         closeBtn.style.position = 'absolute';
         closeBtn.style.top = '30px';
         closeBtn.style.right = '30px';
