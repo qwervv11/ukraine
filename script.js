@@ -756,5 +756,20 @@ function closeLightbox() {
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') {
+        closeLightbox();
+        closeMapModal();
+    }
+});
+
+// #a11y-keyboard
+document.querySelectorAll('.gallery-item, .bar-segment, .map-marker').forEach(item => {
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
 });
