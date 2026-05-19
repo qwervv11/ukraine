@@ -176,6 +176,13 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
+
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
@@ -231,8 +238,26 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
-        lightbox.addEventListener('click', () => {
+        // Focus the close button for accessibility
+        closeBtn.focus();
+
+        // Store reference to the item that opened the lightbox to return focus later
+        const triggerItem = this;
+
+        const closeDynamicLightbox = () => {
             lightbox.remove();
+            triggerItem.focus();
+            document.removeEventListener('keydown', handleEscape);
+        };
+
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') closeDynamicLightbox();
+        };
+
+        document.addEventListener('keydown', handleEscape);
+
+        lightbox.addEventListener('click', () => {
+            closeDynamicLightbox();
         });
 
         lightboxImg.addEventListener('click', (e) => {
