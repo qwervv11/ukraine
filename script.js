@@ -176,9 +176,9 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
-        const img = this.querySelector('img');
-        const caption = this.querySelector('.gallery-caption');
+    const handleGalleryClick = function () {
+        const img = item.querySelector('img');
+        const caption = item.querySelector('.gallery-caption');
 
 
         const lightbox = document.createElement('div');
@@ -238,6 +238,14 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    };
+
+    item.addEventListener('click', handleGalleryClick);
+    item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleGalleryClick();
+        }
     });
 });
 
@@ -618,11 +626,19 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
-        const year = this.querySelector('span').textContent;
+    const handleSegmentClick = function () {
+        const year = segment.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    };
+
+    segment.addEventListener('click', handleSegmentClick);
+    segment.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleSegmentClick();
         }
     });
 });
