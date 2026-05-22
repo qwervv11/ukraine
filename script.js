@@ -176,7 +176,7 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    const openLightboxItem = function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
@@ -238,6 +238,83 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    };
+
+    item.addEventListener('click', openLightboxItem);
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightboxItem.call(this);
+        }
+    });
+});
+
+
+        const lightbox = document.createElement('div');
+        lightbox.style.position = 'fixed';
+        lightbox.style.top = '0';
+        lightbox.style.left = '0';
+        lightbox.style.width = '100%';
+        lightbox.style.height = '100%';
+        lightbox.style.background = 'rgba(0, 0, 0, 0.95)';
+        lightbox.style.zIndex = '10000';
+        lightbox.style.display = 'flex';
+        lightbox.style.flexDirection = 'column';
+        lightbox.style.justifyContent = 'center';
+        lightbox.style.alignItems = 'center';
+        lightbox.style.padding = '40px';
+        lightbox.style.cursor = 'pointer';
+
+        const lightboxImg = document.createElement('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxImg.style.maxWidth = '90%';
+        lightboxImg.style.maxHeight = '80vh';
+        lightboxImg.style.borderRadius = '12px';
+        lightboxImg.style.boxShadow = '0 20px 60px rgba(201, 237, 161, 0.3)';
+
+        const lightboxCaption = document.createElement('div');
+        lightboxCaption.textContent = caption ? caption.textContent : img.alt;
+        lightboxCaption.style.color = '#c9eda1';
+        lightboxCaption.style.fontSize = '20px';
+        lightboxCaption.style.marginTop = '30px';
+        lightboxCaption.style.textAlign = 'center';
+        lightboxCaption.style.fontWeight = '600';
+
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = '✕';
+        closeBtn.setAttribute('aria-label', 'Закрити');
+        closeBtn.style.background = 'none';
+        closeBtn.style.border = 'none';
+        closeBtn.style.position = 'absolute';
+        closeBtn.style.top = '30px';
+        closeBtn.style.right = '30px';
+        closeBtn.style.fontSize = '40px';
+        closeBtn.style.color = '#c9eda1';
+        closeBtn.style.cursor = 'pointer';
+        closeBtn.style.fontWeight = '300';
+
+        lightbox.appendChild(closeBtn);
+        lightbox.appendChild(lightboxImg);
+        lightbox.appendChild(lightboxCaption);
+
+        document.body.appendChild(lightbox);
+
+        lightbox.addEventListener('click', () => {
+            lightbox.remove();
+        });
+
+        lightboxImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    };
+
+    item.addEventListener('click', openLightboxItem);
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightboxItem.call(this);
+        }
     });
 });
 
