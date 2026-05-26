@@ -1,1080 +1,1569 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Пізнавальний проект «Боротьба за незалежність» — війни між Росією та Україною. Інтерактивна хронологія, відео, галерея, факти.">
-    <meta name="keywords"
-        content="Україна, історія, незалежність, боротьба, Голодомор, УПА, УНР, війна, Росія, козацтво">
-    <meta name="author" content="Боротьба за незалежність">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Пізнавальний проект «Боротьба за незалежність» — війни між Росією та Україною. Інтерактивна хронологія, відео, галерея, факти."
+    />
+    <meta
+      name="keywords"
+      content="Україна, історія, незалежність, боротьба, Голодомор, УПА, УНР, війна, Росія, козацтво"
+    />
+    <meta name="author" content="Боротьба за незалежність" />
 
     <!-- #фейсбук -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Пізнавальний проект «Боротьба за незалежність» (війни між Росією та Україною)">
-    <meta property="og:description" content="Війни між Росією та Україною — від XVII століття до наших днів">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Пізнавальний проект «Боротьба за незалежність» (війни між Росією та Україною)"
+    />
+    <meta
+      property="og:description"
+      content="Війни між Росією та Україною — від XVII століття до наших днів"
+    />
+    <meta
+      property="og:image"
+      content="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
+    />
 
     <!-- #твітер -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Пізнавальний проект «Боротьба за незалежність» (війни між Росією та Україною)">
-    <meta name="twitter:description" content="Війни між Росією та Україною — від XVII століття до наших днів">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Пізнавальний проект «Боротьба за незалежність» (війни між Росією та Україною)"
+    />
+    <meta
+      name="twitter:description"
+      content="Війни між Росією та Україною — від XVII століття до наших днів"
+    />
 
     <title>Боротьба за незалежність | Війни між Росією та Україною</title>
 
     <!-- #іконка -->
-    <link rel="icon"
-        href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E🇺🇦%3C/text%3E%3C/svg%3E">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E🇺🇦%3C/text%3E%3C/svg%3E"
+    />
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header class="main-header">
-        <div class="logo-group">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 22H22L12 2Z" stroke="#c9eda1" stroke-width="2" />
-                    <path d="M12 10L6 20H18L12 10Z" fill="#c9eda1" />
-                </svg>
-            </div>
-            <div class="logo-text">
-                БОРОТЬБА ЗА<br>НЕЗАЛЕЖНІСТЬ
-            </div>
+      <div class="logo-group">
+        <div class="logo-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 2L2 22H22L12 2Z" stroke="#c9eda1" stroke-width="2" />
+            <path d="M12 10L6 20H18L12 10Z" fill="#c9eda1" />
+          </svg>
         </div>
-        <button class="hamburger" aria-label="Меню" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav>
-            <a href="#hero">Головна</a>
-            <a href="#timeline">Хронологія</a>
-            <a href="#history">Події</a>
-            <a href="#videos">Відео</a>
-            <a href="#gallery">Галерея</a>
-            <a href="#facts">Статистика</a>
-        </nav>
+        <div class="logo-text">БОРОТЬБА ЗА<br />НЕЗАЛЕЖНІСТЬ</div>
+      </div>
+      <button class="hamburger" aria-label="Меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="#hero">Головна</a>
+        <a href="#timeline">Хронологія</a>
+        <a href="#history">Події</a>
+        <a href="#videos">Відео</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#facts">Статистика</a>
+      </nav>
     </header>
 
     <!-- #герой -->
     <section class="slide hero-slide" id="hero">
-        <div class="ornament-overlay"></div>
-        <div class="hero-content">
-            <span class="small-title">Пізнавальний проект</span>
-            <h1 class="huge-text">
-                БОРОТЬБА<br>ЗА НЕЗАЛЕЖНІСТЬ
-            </h1>
-            <span class="bottom-title">Війни між Росією та Україною</span>
-            <a href="#timeline" class="cta-button">Дослідити історію</a>
-        </div>
-        <div class="bg-pattern"></div>
+      <div class="ornament-overlay"></div>
+      <div class="hero-content">
+        <span class="small-title">Пізнавальний проект</span>
+        <h1 class="huge-text">БОРОТЬБА<br />ЗА НЕЗАЛЕЖНІСТЬ</h1>
+        <span class="bottom-title">Війни між Росією та Україною</span>
+        <a href="#timeline" class="cta-button">Дослідити історію</a>
+      </div>
+      <div class="bg-pattern"></div>
     </section>
 
     <!-- #вступ -->
     <section class="slide text-content-slide">
-        <div class="container">
-            <span class="small-title">Вступ</span>
-            <h2 class="huge-text accent-green">ПРО ЩО<br>ЦЕЙ ПРОЕКТ</h2>
-            <div class="text-columns">
-                <div class="text-col">
-                    <p>Україна протягом століть боролася за свою незалежність. Це не просто історичні факти — це історія
-                        нашого народу, який незважаючи на всі випробування зберіг свою ідентичність, мову та культуру.
-                    </p>
-                    <p>Російська імперія, а згодом Радянський Союз та сучасна Росія постійно намагалися знищити
-                        український народ як окрему націю. Голодомор, репресії, заборони мови, культурний геноцид — все
-                        це частина спланованої політики русифікації.</p>
-                </div>
-                <div class="text-col">
-                    <p>Але український народ не здався. Від козацьких повстань до сучасної війни проти російської
-                        агресії — ми боремося за право бути собою, говорити своєю мовою і жити на своїй землі.</p>
-                    <p>Цей проект — це подорож крізь віки боротьби, від перших конфліктів з Московією до сучасної
-                        героїчної оборони проти повномасштабної російської навали.</p>
-                </div>
-            </div>
+      <div class="container">
+        <span class="small-title">Вступ</span>
+        <h2 class="huge-text accent-green">ПРО ЩО<br />ЦЕЙ ПРОЕКТ</h2>
+        <div class="text-columns">
+          <div class="text-col">
+            <p>
+              Україна протягом століть боролася за свою незалежність. Це не
+              просто історичні факти — це історія нашого народу, який незважаючи
+              на всі випробування зберіг свою ідентичність, мову та культуру.
+            </p>
+            <p>
+              Російська імперія, а згодом Радянський Союз та сучасна Росія
+              постійно намагалися знищити український народ як окрему націю.
+              Голодомор, репресії, заборони мови, культурний геноцид — все це
+              частина спланованої політики русифікації.
+            </p>
+          </div>
+          <div class="text-col">
+            <p>
+              Але український народ не здався. Від козацьких повстань до
+              сучасної війни проти російської агресії — ми боремося за право
+              бути собою, говорити своєю мовою і жити на своїй землі.
+            </p>
+            <p>
+              Цей проект — це подорож крізь віки боротьби, від перших конфліктів
+              з Московією до сучасної героїчної оборони проти повномасштабної
+              російської навали.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #хронологія -->
     <section class="slide timeline-slide" id="timeline">
-        <div class="container">
-            <h2 class="huge-text">ХРОНОЛОГІЯ<br><span class="accent-green">БОРОТЬБИ</span></h2>
-            <p class="subtitle">Від XVII століття до наших днів</p>
+      <div class="container">
+        <h2 class="huge-text">
+          ХРОНОЛОГІЯ<br /><span class="accent-green">БОРОТЬБИ</span>
+        </h2>
+        <p class="subtitle">Від XVII століття до наших днів</p>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #e53935;"></div>
-                    <div class="timeline-content">
-                        <h3>1654-1657</h3>
-                        <h4>Початок підпорядкування Москві</h4>
-                        <p>Переяславська рада. Богдан Хмельницький уклав угоду з московським царем, що згодом призвело
-                            до поступової втрати української автономії.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #d32f2f;"></div>
-                    <div class="timeline-content">
-                        <h3>1709</h3>
-                        <h4>Полтавська битва</h4>
-                        <p>Поразка гетьмана Мазепи та шведського короля Карла XII від московських військ Петра І. Кінець
-                            спроби відновити незалежність України.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #c62828;"></div>
-                    <div class="timeline-content">
-                        <h3>1775</h3>
-                        <h4>Знищення Запорізької Січі</h4>
-                        <p>Катерина II ліквідувала останній осередок української вольності. Козацтво розпущено, землі
-                            роздані російським поміщикам.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #b71c1c;"></div>
-                    <div class="timeline-content">
-                        <h3>1876</h3>
-                        <h4>Емський указ</h4>
-                        <p>Заборона української мови в освіті, друкуванні книжок та театрі. Офіційна політика
-                            русифікації та денаціоналізації.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #1e88e5;"></div>
-                    <div class="timeline-content">
-                        <h3>1917-1921</h3>
-                        <h4>Українська революція та УНР</h4>
-                        <p>Проголошення незалежності УНР, боротьба проти більшовицької Росії. Національно-визвольні
-                            змагання закінчилися окупацією.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #1976d2;"></div>
-                    <div class="timeline-content">
-                        <h3>1918</h3>
-                        <h4>Бій під Крутами</h4>
-                        <p>300 студентів та гімназистів вступили в нерівний бій з більшовицькими військами, обороняючи
-                            шлях на Київ. Символ молодої української державності.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #000000;"></div>
-                    <div class="timeline-content">
-                        <h3>1932-1933</h3>
-                        <h4>Голодомор</h4>
-                        <p>Штучно створений голод, що забрав життя 7-10 мільйонів українців. Геноцид українського
-                            народу, спрямований на знищення національної ідентичності.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #000000;"></div>
-                    <div class="timeline-content">
-                        <h3>1937-1938</h3>
-                        <h4>Великий терор</h4>
-                        <p>Репресії проти української інтелігенції, письменників, вчених. "Розстріляне відродження" —
-                            знищення цілого покоління української еліти.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #c62828;"></div>
-                    <div class="timeline-content">
-                        <h3>1943-1954</h3>
-                        <h4>Боротьба УПА</h4>
-                        <p>Українська повстанська армія вела партизанську боротьбу проти радянської окупації. Десятки
-                            тисяч загиблих за українську незалежність.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #fdd835;"></div>
-                    <div class="timeline-content">
-                        <h3>1991</h3>
-                        <h4>Незалежність України</h4>
-                        <p>Акт проголошення незалежності України. Після століть боротьби Україна нарешті стала
-                            незалежною державою.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #ff6f00;"></div>
-                    <div class="timeline-content">
-                        <h3>2004</h3>
-                        <h4>Помаранчева революція</h4>
-                        <p>Мирний протест проти фальсифікації виборів. Перемога демократії та європейського вибору
-                            України.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #1976d2;"></div>
-                    <div class="timeline-content">
-                        <h3>2013-2014</h3>
-                        <h4>Революція Гідності</h4>
-                        <p>Євромайдан. Українці відстояли європейський вибір, але заплатили ціною життів Небесної Сотні.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #e53935;"></div>
-                    <div class="timeline-content">
-                        <h3>2014</h3>
-                        <h4>Анексія Криму та початок війни</h4>
-                        <p>Росія окупувала Крим та розпочала війну на Донбасі. Початок відкритої російської агресії
-                            проти України.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker" style="background: #d32f2f;"></div>
-                    <div class="timeline-content">
-                        <h3>24.02.2022</h3>
-                        <h4>Повномасштабна війна</h4>
-                        <p>Росія розпочала повномасштабне вторгнення в Україну. Український народ героїчно обороняє свою
-                            землю від російських окупантів.</p>
-                    </div>
-                </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #e53935"></div>
+            <div class="timeline-content">
+              <h3>1654-1657</h3>
+              <h4>Початок підпорядкування Москві</h4>
+              <p>
+                Переяславська рада. Богдан Хмельницький уклав угоду з
+                московським царем, що згодом призвело до поступової втрати
+                української автономії.
+              </p>
             </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #d32f2f"></div>
+            <div class="timeline-content">
+              <h3>1709</h3>
+              <h4>Полтавська битва</h4>
+              <p>
+                Поразка гетьмана Мазепи та шведського короля Карла XII від
+                московських військ Петра І. Кінець спроби відновити незалежність
+                України.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #c62828"></div>
+            <div class="timeline-content">
+              <h3>1775</h3>
+              <h4>Знищення Запорізької Січі</h4>
+              <p>
+                Катерина II ліквідувала останній осередок української вольності.
+                Козацтво розпущено, землі роздані російським поміщикам.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #b71c1c"></div>
+            <div class="timeline-content">
+              <h3>1876</h3>
+              <h4>Емський указ</h4>
+              <p>
+                Заборона української мови в освіті, друкуванні книжок та театрі.
+                Офіційна політика русифікації та денаціоналізації.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #1e88e5"></div>
+            <div class="timeline-content">
+              <h3>1917-1921</h3>
+              <h4>Українська революція та УНР</h4>
+              <p>
+                Проголошення незалежності УНР, боротьба проти більшовицької
+                Росії. Національно-визвольні змагання закінчилися окупацією.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #1976d2"></div>
+            <div class="timeline-content">
+              <h3>1918</h3>
+              <h4>Бій під Крутами</h4>
+              <p>
+                300 студентів та гімназистів вступили в нерівний бій з
+                більшовицькими військами, обороняючи шлях на Київ. Символ
+                молодої української державності.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #000000"></div>
+            <div class="timeline-content">
+              <h3>1932-1933</h3>
+              <h4>Голодомор</h4>
+              <p>
+                Штучно створений голод, що забрав життя 7-10 мільйонів
+                українців. Геноцид українського народу, спрямований на знищення
+                національної ідентичності.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #000000"></div>
+            <div class="timeline-content">
+              <h3>1937-1938</h3>
+              <h4>Великий терор</h4>
+              <p>
+                Репресії проти української інтелігенції, письменників, вчених.
+                "Розстріляне відродження" — знищення цілого покоління
+                української еліти.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #c62828"></div>
+            <div class="timeline-content">
+              <h3>1943-1954</h3>
+              <h4>Боротьба УПА</h4>
+              <p>
+                Українська повстанська армія вела партизанську боротьбу проти
+                радянської окупації. Десятки тисяч загиблих за українську
+                незалежність.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #fdd835"></div>
+            <div class="timeline-content">
+              <h3>1991</h3>
+              <h4>Незалежність України</h4>
+              <p>
+                Акт проголошення незалежності України. Після століть боротьби
+                Україна нарешті стала незалежною державою.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #ff6f00"></div>
+            <div class="timeline-content">
+              <h3>2004</h3>
+              <h4>Помаранчева революція</h4>
+              <p>
+                Мирний протест проти фальсифікації виборів. Перемога демократії
+                та європейського вибору України.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #1976d2"></div>
+            <div class="timeline-content">
+              <h3>2013-2014</h3>
+              <h4>Революція Гідності</h4>
+              <p>
+                Євромайдан. Українці відстояли європейський вибір, але заплатили
+                ціною життів Небесної Сотні.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #e53935"></div>
+            <div class="timeline-content">
+              <h3>2014</h3>
+              <h4>Анексія Криму та початок війни</h4>
+              <p>
+                Росія окупувала Крим та розпочала війну на Донбасі. Початок
+                відкритої російської агресії проти України.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker" style="background: #d32f2f"></div>
+            <div class="timeline-content">
+              <h3>24.02.2022</h3>
+              <h4>Повномасштабна війна</h4>
+              <p>
+                Росія розпочала повномасштабне вторгнення в Україну. Український
+                народ героїчно обороняє свою землю від російських окупантів.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #події -->
     <section class="slide image-text-slide" id="history">
-        <div class="text-block">
-            <span class="small-title">Розділ 1</span>
-            <h2 class="huge-text accent-green">ЗНИЩЕННЯ<br>ЗАПОРІЗЬКОЇ<br>СІЧІ</h2>
-            <p class="event-text">У 1775 році Катерина II наказала знищити Запорізьку Січ — останній бастіон української
-                вільності. Це був цілеспрямований акт ліквідації українського козацтва як окремої соціальної і
-                військової сили.</p>
-            <p class="event-text">Землі козаків були роздані російським дворянам, а самих запорожців частину переселили
-                на Кубань, де вони втратили свою ідентичність.</p>
-        </div>
+      <div class="text-block">
+        <span class="small-title">Розділ 1</span>
+        <h2 class="huge-text accent-green">
+          ЗНИЩЕННЯ<br />ЗАПОРІЗЬКОЇ<br />СІЧІ
+        </h2>
+        <p class="event-text">
+          У 1775 році Катерина II наказала знищити Запорізьку Січ — останній
+          бастіон української вільності. Це був цілеспрямований акт ліквідації
+          українського козацтва як окремої соціальної і військової сили.
+        </p>
+        <p class="event-text">
+          Землі козаків були роздані російським дворянам, а самих запорожців
+          частину переселили на Кубань, де вони втратили свою ідентичність.
+        </p>
+      </div>
 
-        <div class="image-block">
-            <div class="figma-box">
-                <img src="img/sich.jpg" alt="Знищення Запорізької Січі">
-            </div>
+      <div class="image-block">
+        <div class="figma-box">
+          <img src="img/sich.jpg" alt="Знищення Запорізької Січі" />
         </div>
+      </div>
     </section>
 
     <!-- #голодомор -->
     <section class="slide dark-slide">
-        <div class="container">
-            <h2 class="huge-text" style="color: #fff;">ГОЛОДОМОР<br><span style="color: #e53935;">1932-1933</span></h2>
+      <div class="container">
+        <h2 class="huge-text" style="color: #fff">
+          ГОЛОДОМОР<br /><span style="color: #e53935">1932-1933</span>
+        </h2>
 
-            <div class="holodomor-content">
-                <div class="stat-box">
-                    <div class="stat-number">7-10 млн</div>
-                    <div class="stat-label">жертв геноциду</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">25%</div>
-                    <div class="stat-label">населення України загинуло</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">1 дитина</div>
-                    <div class="stat-label">вмирала кожні 10 секунд</div>
-                </div>
-            </div>
-
-            <div class="text-content">
-                <p>Голодомор 1932-1933 років — це не просто голод. Це геноцид українського народу, штучно створений
-                    радянським режимом. Сталін цілеспрямовано вилучав увесь хліб у селян, обрікаючи мільйони на страшну
-                    смерть.</p>
-                <p>Це був акт покарання України за прагнення до незалежності, за опір колективізації, за бажання
-                    зберегти свою культуру та мову.</p>
-            </div>
-
-            <div class="image-grid-2">
-                <img src="img/golodomor.jpg" alt="Голодомор 1932-33">
-                <img src="img/memorial.jpg" alt="Меморіал жертвам Голодомору">
-            </div>
+        <div class="holodomor-content">
+          <div class="stat-box">
+            <div class="stat-number">7-10 млн</div>
+            <div class="stat-label">жертв геноциду</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">25%</div>
+            <div class="stat-label">населення України загинуло</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">1 дитина</div>
+            <div class="stat-label">вмирала кожні 10 секунд</div>
+          </div>
         </div>
+
+        <div class="text-content">
+          <p>
+            Голодомор 1932-1933 років — це не просто голод. Це геноцид
+            українського народу, штучно створений радянським режимом. Сталін
+            цілеспрямовано вилучав увесь хліб у селян, обрікаючи мільйони на
+            страшну смерть.
+          </p>
+          <p>
+            Це був акт покарання України за прагнення до незалежності, за опір
+            колективізації, за бажання зберегти свою культуру та мову.
+          </p>
+        </div>
+
+        <div class="image-grid-2">
+          <img src="img/golodomor.jpg" alt="Голодомор 1932-33" />
+          <img src="img/memorial.jpg" alt="Меморіал жертвам Голодомору" />
+        </div>
+      </div>
     </section>
 
     <!-- #крути -->
     <section class="slide image-text-slide">
-        <div class="image-block">
-            <div class="figma-box">
-                <img src="img/krutami.jpg" alt="Бій під Крутами">
-            </div>
+      <div class="image-block">
+        <div class="figma-box">
+          <img src="img/krutami.jpg" alt="Бій під Крутами" />
         </div>
+      </div>
 
-        <div class="text-block">
-            <span class="small-title">29 січня 1918</span>
-            <h2 class="huge-text accent-green">БІЙ ПІД<br>КРУТАМИ</h2>
-            <p class="event-text">Близько 300 українських студентів та юнаків вступили в нерівний бій з 4-тисячною
-                армією більшовиків. Вони знали, що шансів вижити немає, але затримали ворога на шляху до Києва.</p>
-            <p class="event-text">Це був бій не за перемогу, а за честь. Бій, який показав, що українська молодь готова
-                віддати життя за свою державу. Більшість героїв загинули, але їхній подвиг назавжди залишився в історії.
-            </p>
-        </div>
+      <div class="text-block">
+        <span class="small-title">29 січня 1918</span>
+        <h2 class="huge-text accent-green">БІЙ ПІД<br />КРУТАМИ</h2>
+        <p class="event-text">
+          Близько 300 українських студентів та юнаків вступили в нерівний бій з
+          4-тисячною армією більшовиків. Вони знали, що шансів вижити немає, але
+          затримали ворога на шляху до Києва.
+        </p>
+        <p class="event-text">
+          Це був бій не за перемогу, а за честь. Бій, який показав, що
+          українська молодь готова віддати життя за свою державу. Більшість
+          героїв загинули, але їхній подвиг назавжди залишився в історії.
+        </p>
+      </div>
     </section>
 
     <!-- #відео -->
     <section class="slide video-slide" id="videos">
-        <div class="container">
-            <h2 class="huge-text">ВІДЕО<br><span class="accent-green">МАТЕРІАЛИ</span></h2>
-            <p class="subtitle">Документальні ролики та історичні матеріали</p>
+      <div class="container">
+        <h2 class="huge-text">
+          ВІДЕО<br /><span class="accent-green">МАТЕРІАЛИ</span>
+        </h2>
+        <p class="subtitle">Документальні ролики та історичні матеріали</p>
 
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/WeMe3jWRQZM?si=DXE8xTCxpL8tMQkr"
-                            title="Українська революція 1917-1921" style="border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <h3>Українська революція 1917-1921</h3>
-                    <p>Історія боротьби за незалежність УНР</p>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/ks1ZZS3ZgD4?si=47UgsDEW8p9QX4yb"
-                            title="Голодомор 1932-1933" style="border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <h3>Голодомор 1932-1933</h3>
-                    <p>Геноцид українського народу</p>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/QQ-qj2mu1dI?si=qhD6wZ1N8DpCMQq4"
-                            title="Революція Гідності" style="border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <h3>Революція Гідності 2014</h3>
-                    <p>Євромайдан та боротьба за європейський вибір</p>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/K4THg8YY47M?si=UBrQ8PpiUrVv2MO7" title="Війна 2022"
-                            style="border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <h3>Війна 2022</h3>
-                    <p>Російське вторгнення та героїчна оборона України</p>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/2PrthVAZRro?si=1RIc6bochqw4a7iD"
-                            title="Історія України" style="border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <h3>Історія України за 30 хвилин</h3>
-                    <p>Від Київської Русі до сьогодення</p>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/d_c9WZ8DrVg?si=sWh6SIIFJ9P83QSf" title="УПА"
-                            style="border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <h3>Українська Повстанська Армія</h3>
-                    <p>Боротьба проти радянської окупації</p>
-                </div>
+        <div class="video-grid">
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/WeMe3jWRQZM?si=DXE8xTCxpL8tMQkr"
+                title="Українська революція 1917-1921"
+                style="border: 0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
             </div>
+            <h3>Українська революція 1917-1921</h3>
+            <p>Історія боротьби за незалежність УНР</p>
+          </div>
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/ks1ZZS3ZgD4?si=47UgsDEW8p9QX4yb"
+                title="Голодомор 1932-1933"
+                style="border: 0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h3>Голодомор 1932-1933</h3>
+            <p>Геноцид українського народу</p>
+          </div>
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/QQ-qj2mu1dI?si=qhD6wZ1N8DpCMQq4"
+                title="Революція Гідності"
+                style="border: 0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h3>Революція Гідності 2014</h3>
+            <p>Євромайдан та боротьба за європейський вибір</p>
+          </div>
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/K4THg8YY47M?si=UBrQ8PpiUrVv2MO7"
+                title="Війна 2022"
+                style="border: 0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h3>Війна 2022</h3>
+            <p>Російське вторгнення та героїчна оборона України</p>
+          </div>
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/2PrthVAZRro?si=1RIc6bochqw4a7iD"
+                title="Історія України"
+                style="border: 0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h3>Історія України за 30 хвилин</h3>
+            <p>Від Київської Русі до сьогодення</p>
+          </div>
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/d_c9WZ8DrVg?si=sWh6SIIFJ9P83QSf"
+                title="УПА"
+                style="border: 0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h3>Українська Повстанська Армія</h3>
+            <p>Боротьба проти радянської окупації</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #цитати -->
     <section class="slide quotes-slide">
-        <div class="container">
-            <h2 class="huge-text accent-green">ГОЛОСИ<br>ІСТОРІЇ</h2>
+      <div class="container">
+        <h2 class="huge-text accent-green">ГОЛОСИ<br />ІСТОРІЇ</h2>
 
-            <div class="quotes-grid">
-                <div class="quote-card">
-                    <div class="quote-text">"Україна ще не вмерла, і не вмре, бо ми її не дамо вбити."</div>
-                    <div class="quote-author">— Степан Бандера</div>
-                </div>
-
-                <div class="quote-card">
-                    <div class="quote-text">"За Україну, за її волю, за честь і славу голови складайте!"</div>
-                    <div class="quote-author">— Роман Шухевич</div>
-                </div>
-
-                <div class="quote-card">
-                    <div class="quote-text">"Я вважаю, що український народ має повне право на самостійне життя."</div>
-                    <div class="quote-author">— Михайло Грушевський</div>
-                </div>
-
-                <div class="quote-card">
-                    <div class="quote-text">"Не дивуйтесь, що ми обороняємо Україну. Дивуйтесь, що робили це не завжди."
-                    </div>
-                    <div class="quote-author">— Народна мудрість</div>
-                </div>
-
-                <div class="quote-card">
-                    <div class="quote-text">"Воля або смерть! Третього не дано!"</div>
-                    <div class="quote-author">— Гасло УПА</div>
-                </div>
-
-                <div class="quote-card">
-                    <div class="quote-text">"Україна – це не Росія. Ніколи не була і не буде."</div>
-                    <div class="quote-author">— Леонід Кучма</div>
-                </div>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <div class="quote-text">
+              "Україна ще не вмерла, і не вмре, бо ми її не дамо вбити."
             </div>
+            <div class="quote-author">— Степан Бандера</div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              "За Україну, за її волю, за честь і славу голови складайте!"
+            </div>
+            <div class="quote-author">— Роман Шухевич</div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              "Я вважаю, що український народ має повне право на самостійне
+              життя."
+            </div>
+            <div class="quote-author">— Михайло Грушевський</div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              "Не дивуйтесь, що ми обороняємо Україну. Дивуйтесь, що робили це
+              не завжди."
+            </div>
+            <div class="quote-author">— Народна мудрість</div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">"Воля або смерть! Третього не дано!"</div>
+            <div class="quote-author">— Гасло УПА</div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-text">
+              "Україна – це не Росія. Ніколи не була і не буде."
+            </div>
+            <div class="quote-author">— Леонід Кучма</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #галерея -->
     <section class="slide gallery-slide" id="gallery">
-        <div class="container">
-            <h2 class="huge-text">ІСТОРИЧНА<br><span class="accent-green">ГАЛЕРЕЯ</span></h2>
+      <div class="container">
+        <h2 class="huge-text">
+          ІСТОРИЧНА<br /><span class="accent-green">ГАЛЕРЕЯ</span>
+        </h2>
 
-            <div class="gallery-grid">
-                <div class="gallery-item large">
-                    <img src="img/zaporija.jpg" alt="Запорожці пишуть листа турецькому султану">
-                    <div class="gallery-caption">Запорожці пишуть листа турецькому султану (Ілля Рєпін)</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="img/mazepa.jpeg" alt="Іван Мазепа">
-                    <div class="gallery-caption">Іван Мазепа - гетьман України</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="img/taras.jpeg" alt="Тарас Шевченко">
-                    <div class="gallery-caption">Тарас Шевченко - кобзар України</div>
-                </div>
-
-                <div class="gallery-item wide">
-                    <img src="img/unr.jpg" alt="Війська УНР">
-                    <div class="gallery-caption">Армія УНР 1918-1920</div>
-                </div>
-
-                <div class="gallery-item wide">
-                    <img src="img/maidan.jpeg" alt="Євромайдан">
-                    <div class="gallery-caption">Євромайдан 2013-2014</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="img/bandera.jpg" alt="Степан Бандера">
-                    <div class="gallery-caption">Степан Бандера</div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="img/shuhevich.jpeg" alt="Роман Шухевич">
-                    <div class="gallery-caption">Роман Шухевич - командир УПА</div>
-                </div>
-
-                <div class="gallery-item large">
-                    <img src="img/zsu.jpg" alt="Українські воїни 2022">
-                    <div class="gallery-caption">Захисники України 2022</div>
-                </div>
+        <div class="gallery-grid">
+          <div
+            class="gallery-item large"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Запорожці пишуть листа турецькому султану (Ілля Рєпін)"
+          >
+            <img
+              src="img/zaporija.jpg"
+              alt="Запорожці пишуть листа турецькому султану"
+            />
+            <div class="gallery-caption">
+              Запорожці пишуть листа турецькому султану (Ілля Рєпін)
             </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Іван Мазепа - гетьман України"
+          >
+            <img src="img/mazepa.jpeg" alt="Іван Мазепа" />
+            <div class="gallery-caption">Іван Мазепа - гетьман України</div>
+          </div>
+
+          <div
+            class="gallery-item"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Тарас Шевченко - кобзар України"
+          >
+            <img src="img/taras.jpeg" alt="Тарас Шевченко" />
+            <div class="gallery-caption">Тарас Шевченко - кобзар України</div>
+          </div>
+
+          <div
+            class="gallery-item wide"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Армія УНР 1918-1920"
+          >
+            <img src="img/unr.jpg" alt="Війська УНР" />
+            <div class="gallery-caption">Армія УНР 1918-1920</div>
+          </div>
+
+          <div
+            class="gallery-item wide"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Євромайдан 2013-2014"
+          >
+            <img src="img/maidan.jpeg" alt="Євромайдан" />
+            <div class="gallery-caption">Євромайдан 2013-2014</div>
+          </div>
+
+          <div
+            class="gallery-item"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Степан Бандера"
+          >
+            <img src="img/bandera.jpg" alt="Степан Бандера" />
+            <div class="gallery-caption">Степан Бандера</div>
+          </div>
+
+          <div
+            class="gallery-item"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Роман Шухевич - командир УПА"
+          >
+            <img src="img/shuhevich.jpeg" alt="Роман Шухевич" />
+            <div class="gallery-caption">Роман Шухевич - командир УПА</div>
+          </div>
+
+          <div
+            class="gallery-item large"
+            tabindex="0"
+            role="button"
+            aria-label="Відкрити зображення: Захисники України 2022"
+          >
+            <img src="img/zsu.jpg" alt="Українські воїни 2022" />
+            <div class="gallery-caption">Захисники України 2022</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #факти -->
     <section class="slide facts-slide" id="facts">
-        <div class="container">
-            <h2 class="huge-text">ФАКТИ ТА<br><span class="accent-green">СТАТИСТИКА</span></h2>
+      <div class="container">
+        <h2 class="huge-text">
+          ФАКТИ ТА<br /><span class="accent-green">СТАТИСТИКА</span>
+        </h2>
 
-            <div class="facts-grid">
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-scroll"></i></div>
-                    <div class="fact-number">400+</div>
-                    <div class="fact-label">років боротьби</div>
-                    <p>Від XVI століття до сьогодення українці борються проти російської експансії</p>
-                </div>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-scroll"></i></div>
+            <div class="fact-number">400+</div>
+            <div class="fact-label">років боротьби</div>
+            <p>
+              Від XVI століття до сьогодення українці борються проти російської
+              експансії
+            </p>
+          </div>
 
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-skull-crossbones"></i></div>
-                    <div class="fact-number">15+ млн</div>
-                    <div class="fact-label">жертв</div>
-                    <p>Голодомор, репресії, депортації, війни - мільйони загиблих за українську незалежність</p>
-                </div>
-
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-ban"></i></div>
-                    <div class="fact-number">5 разів</div>
-                    <div class="fact-label">заборони мови</div>
-                    <p>Російська імперія та СРСР 5 разів забороняли українську мову офіційно</p>
-                </div>
-
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-khanda"></i></div>
-                    <div class="fact-number">1654-2026</div>
-                    <div class="fact-label">372 років протистояння</div>
-                    <p>Від Переяславської ради до сучасної війни</p>
-                </div>
-
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-landmark"></i></div>
-                    <div class="fact-number">1918</div>
-                    <div class="fact-label">перша незалежність</div>
-                    <p>УНР - перша спроба створення незалежної української держави у XX столітті</p>
-                </div>
-
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-flag"></i></div>
-                    <div class="fact-number">24.08.1991</div>
-                    <div class="fact-label">день незалежності</div>
-                    <p>Акт проголошення незалежності України - реалізація багатовікової мрії</p>
-                </div>
-
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-fire"></i></div>
-                    <div class="fact-number">104 дні</div>
-                    <div class="fact-label">Майдан 2013-2014</div>
-                    <p>Революція Гідності тривала від 21 листопада 2013 до 22 лютого 2014</p>
-                </div>
-
-                <div class="fact-card">
-                    <div class="fact-icon"><i class="fa-solid fa-hand-fist"></i></div>
-                    <div class="fact-number">2014-2026</div>
-                    <div class="fact-label">12 років війни</div>
-                    <p>Україна героїчно протистоїть російській агресії вже понад десятиліття</p>
-                </div>
+          <div class="fact-card">
+            <div class="fact-icon">
+              <i class="fa-solid fa-skull-crossbones"></i>
             </div>
+            <div class="fact-number">15+ млн</div>
+            <div class="fact-label">жертв</div>
+            <p>
+              Голодомор, репресії, депортації, війни - мільйони загиблих за
+              українську незалежність
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-ban"></i></div>
+            <div class="fact-number">5 разів</div>
+            <div class="fact-label">заборони мови</div>
+            <p>
+              Російська імперія та СРСР 5 разів забороняли українську мову
+              офіційно
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-khanda"></i></div>
+            <div class="fact-number">1654-2026</div>
+            <div class="fact-label">372 років протистояння</div>
+            <p>Від Переяславської ради до сучасної війни</p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-landmark"></i></div>
+            <div class="fact-number">1918</div>
+            <div class="fact-label">перша незалежність</div>
+            <p>
+              УНР - перша спроба створення незалежної української держави у XX
+              столітті
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-flag"></i></div>
+            <div class="fact-number">24.08.1991</div>
+            <div class="fact-label">день незалежності</div>
+            <p>
+              Акт проголошення незалежності України - реалізація багатовікової
+              мрії
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-fire"></i></div>
+            <div class="fact-number">104 дні</div>
+            <div class="fact-label">Майдан 2013-2014</div>
+            <p>
+              Революція Гідності тривала від 21 листопада 2013 до 22 лютого 2014
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon"><i class="fa-solid fa-hand-fist"></i></div>
+            <div class="fact-number">2014-2026</div>
+            <div class="fact-label">12 років війни</div>
+            <p>
+              Україна героїчно протистоїть російській агресії вже понад
+              десятиліття
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #війна -->
     <section class="slide modern-war-slide">
-        <div class="container">
-            <h2 class="huge-text" style="color: #1e88e5;">ВІЙНА<br><span style="color: #fdd835;">2014-2026</span></h2>
+      <div class="container">
+        <h2 class="huge-text" style="color: #1e88e5">
+          ВІЙНА<br /><span style="color: #fdd835">2014-2026</span>
+        </h2>
 
-            <div class="war-timeline">
-                <div class="war-event">
-                    <div class="war-date">20 лютого 2014</div>
-                    <h3>Анексія Криму</h3>
-                    <p>Росія окупувала український Крим, порушивши міжнародне право та Будапештський меморандум.</p>
-                    <img src="img/krim.jpg" alt="Реакція світу на анексію Криму">
-                </div>
+        <div class="war-timeline">
+          <div class="war-event">
+            <div class="war-date">20 лютого 2014</div>
+            <h3>Анексія Криму</h3>
+            <p>
+              Росія окупувала український Крим, порушивши міжнародне право та
+              Будапештський меморандум.
+            </p>
+            <img src="img/krim.jpg" alt="Реакція світу на анексію Криму" />
+          </div>
 
-                <div class="war-event">
-                    <div class="war-date">Квітень 2014</div>
-                    <h3>Початок війни на Донбасі</h3>
-                    <p>Росія розпочала гібридну війну на сході України, маскуючи свої війська під "сепаратистів".</p>
-                    <img src="img/donbas.png" alt="Карта конфлікту на Донбасі">
-                </div>
+          <div class="war-event">
+            <div class="war-date">Квітень 2014</div>
+            <h3>Початок війни на Донбасі</h3>
+            <p>
+              Росія розпочала гібридну війну на сході України, маскуючи свої
+              війська під "сепаратистів".
+            </p>
+            <img src="img/donbas.png" alt="Карта конфлікту на Донбасі" />
+          </div>
 
-                <div class="war-event">
-                    <div class="war-date">24 лютого 2022</div>
-                    <h3>Повномасштабна навала</h3>
-                    <p>О 4:00 ранку Росія розпочала повномасштабне вторгнення в Україну з півночі, сходу та півдня.</p>
-                    <div class="war-stats">
-                        <div class="stat"><i class="fa-solid fa-city stat-icon"></i> <strong>Маріуполь</strong> -
-                            героїчна оборона міста</div>
-                        <div class="stat"><i class="fa-solid fa-skull stat-icon"></i> <strong>Бучанська
-                                різанина</strong> - військові злочини рф</div>
-                        <div class="stat"><i class="fa-solid fa-bolt stat-icon"></i> <strong>Контрнаступ 2022</strong> -
-                            звільнення Харківщини</div>
-                    </div>
-                </div>
-
-                <div class="war-event">
-                    <div class="war-date">2022-2026</div>
-                    <h3>Боротьба продовжується</h3>
-                    <p>Україна продовжує героїчно обороняти свою землю за підтримки цивілізованого світу.</p>
-                    <div class="support-flags">
-                        <span title="США">US</span> <span title="Велика Британія">UK</span> <span
-                            title="Німеччина">DE</span> <span title="Франція">FR</span> <span title="Польща">PL</span>
-                        <span title="Канада">CA</span> <span title="ЄС">EU</span>
-                    </div>
-                </div>
+          <div class="war-event">
+            <div class="war-date">24 лютого 2022</div>
+            <h3>Повномасштабна навала</h3>
+            <p>
+              О 4:00 ранку Росія розпочала повномасштабне вторгнення в Україну з
+              півночі, сходу та півдня.
+            </p>
+            <div class="war-stats">
+              <div class="stat">
+                <i class="fa-solid fa-city stat-icon"></i>
+                <strong>Маріуполь</strong> - героїчна оборона міста
+              </div>
+              <div class="stat">
+                <i class="fa-solid fa-skull stat-icon"></i>
+                <strong>Бучанська різанина</strong> - військові злочини рф
+              </div>
+              <div class="stat">
+                <i class="fa-solid fa-bolt stat-icon"></i>
+                <strong>Контрнаступ 2022</strong> - звільнення Харківщини
+              </div>
             </div>
+          </div>
+
+          <div class="war-event">
+            <div class="war-date">2022-2026</div>
+            <h3>Боротьба продовжується</h3>
+            <p>
+              Україна продовжує героїчно обороняти свою землю за підтримки
+              цивілізованого світу.
+            </p>
+            <div class="support-flags">
+              <span title="США">US</span>
+              <span title="Велика Британія">UK</span>
+              <span title="Німеччина">DE</span> <span title="Франція">FR</span>
+              <span title="Польща">PL</span> <span title="Канада">CA</span>
+              <span title="ЄС">EU</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #карта -->
     <section class="slide map-slide">
-        <div class="container">
-            <h2 class="huge-text accent-green">ІНТЕРАКТИВНА<br>КАРТА ПОДІЙ</h2>
-            <p class="subtitle">Натисніть на маркер міста, щоб дізнатись більше</p>
+      <div class="container">
+        <h2 class="huge-text accent-green">ІНТЕРАКТИВНА<br />КАРТА ПОДІЙ</h2>
+        <p class="subtitle">Натисніть на маркер міста, щоб дізнатись більше</p>
 
-            <div class="map-container">
-                <div id="leafletMap"
-                    style="width:100%; height:500px; border-radius:16px; border:2px solid rgba(255,255,255,0.1);"></div>
+        <div class="map-container">
+          <div
+            id="leafletMap"
+            style="
+              width: 100%;
+              height: 500px;
+              border-radius: 16px;
+              border: 2px solid rgba(255, 255, 255, 0.1);
+            "
+          ></div>
 
-                <div class="map-legend">
-                    <h3>Легенда:</h3>
-                    <div class="legend-item"><span class="dot" style="background: #fdd835;"></span> Столиця</div>
-                    <div class="legend-item"><span class="dot" style="background: #e53935;"></span> Ключові міста
-                        боротьби</div>
-                </div>
+          <div class="map-legend">
+            <h3>Легенда:</h3>
+            <div class="legend-item">
+              <span class="dot" style="background: #fdd835"></span> Столиця
             </div>
+            <div class="legend-item">
+              <span class="dot" style="background: #e53935"></span> Ключові
+              міста боротьби
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #герої -->
     <section class="slide heroes-slide">
-        <div class="container">
-            <h2 class="huge-text">ГЕРОЇ<br><span class="accent-green">УКРАЇНИ</span></h2>
+      <div class="container">
+        <h2 class="huge-text">
+          ГЕРОЇ<br /><span class="accent-green">УКРАЇНИ</span>
+        </h2>
 
-            <div class="heroes-grid">
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-crown"></i></div>
-                    <h3>Богдан Хмельницький</h3>
-                    <p class="hero-years">1595-1657</p>
-                    <p>Гетьман України, визволитель від польської шляхти, створив козацьку державу.</p>
-                </div>
+        <div class="heroes-grid">
+          <div class="hero-card">
+            <div class="hero-image"><i class="fa-solid fa-crown"></i></div>
+            <h3>Богдан Хмельницький</h3>
+            <p class="hero-years">1595-1657</p>
+            <p>
+              Гетьман України, визволитель від польської шляхти, створив
+              козацьку державу.
+            </p>
+          </div>
 
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-chess-rook"></i></div>
-                    <h3>Іван Мазепа</h3>
-                    <p class="hero-years">1639-1709</p>
-                    <p>Гетьман, який боровся за незалежність України від Московії разом зі Швецією.</p>
-                </div>
+          <div class="hero-card">
+            <div class="hero-image"><i class="fa-solid fa-chess-rook"></i></div>
+            <h3>Іван Мазепа</h3>
+            <p class="hero-years">1639-1709</p>
+            <p>
+              Гетьман, який боровся за незалежність України від Московії разом
+              зі Швецією.
+            </p>
+          </div>
 
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-book-open"></i></div>
-                    <h3>Тарас Шевченко</h3>
-                    <p class="hero-years">1814-1861</p>
-                    <p>Кобзар України, поет-пророк, який словом боровся за волю українського народу.</p>
-                </div>
+          <div class="hero-card">
+            <div class="hero-image"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Тарас Шевченко</h3>
+            <p class="hero-years">1814-1861</p>
+            <p>
+              Кобзар України, поет-пророк, який словом боровся за волю
+              українського народу.
+            </p>
+          </div>
 
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h3>Михайло Грушевський</h3>
-                    <p class="hero-years">1866-1934</p>
-                    <p>Історик, голова Центральної Ради УНР, автор "Історії України-Руси".</p>
-                </div>
-
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Симон Петлюра</h3>
-                    <p class="hero-years">1879-1926</p>
-                    <p>Головний отаман УНР, борець за незалежність під час Української революції.</p>
-                </div>
-
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-star"></i></div>
-                    <h3>Степан Бандера</h3>
-                    <p class="hero-years">1909-1959</p>
-                    <p>Провідник ОУН, символ боротьби за українську незалежність у XX столітті.</p>
-                </div>
-
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-medal"></i></div>
-                    <h3>Роман Шухевич</h3>
-                    <p class="hero-years">1907-1950</p>
-                    <p>Командир УПА, генерал, герой боротьби проти нацистів та більшовиків.</p>
-                </div>
-
-                <div class="hero-card">
-                    <div class="hero-image"><i class="fa-solid fa-shield"></i></div>
-                    <h3>Сучасні захисники</h3>
-                    <p class="hero-years">2014-2026</p>
-                    <p>Воїни ЗСУ, волонтери, медики - герої, які сьогодні захищають Україну.</p>
-                </div>
+          <div class="hero-card">
+            <div class="hero-image">
+              <i class="fa-solid fa-graduation-cap"></i>
             </div>
+            <h3>Михайло Грушевський</h3>
+            <p class="hero-years">1866-1934</p>
+            <p>
+              Історик, голова Центральної Ради УНР, автор "Історії
+              України-Руси".
+            </p>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-image">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Симон Петлюра</h3>
+            <p class="hero-years">1879-1926</p>
+            <p>
+              Головний отаман УНР, борець за незалежність під час Української
+              революції.
+            </p>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-image"><i class="fa-solid fa-star"></i></div>
+            <h3>Степан Бандера</h3>
+            <p class="hero-years">1909-1959</p>
+            <p>
+              Провідник ОУН, символ боротьби за українську незалежність у XX
+              столітті.
+            </p>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-image"><i class="fa-solid fa-medal"></i></div>
+            <h3>Роман Шухевич</h3>
+            <p class="hero-years">1907-1950</p>
+            <p>
+              Командир УПА, генерал, герой боротьби проти нацистів та
+              більшовиків.
+            </p>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-image"><i class="fa-solid fa-shield"></i></div>
+            <h3>Сучасні захисники</h3>
+            <p class="hero-years">2014-2026</p>
+            <p>
+              Воїни ЗСУ, волонтери, медики - герої, які сьогодні захищають
+              Україну.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #порівняння -->
     <section class="slide comparison-slide">
-        <div class="container">
-            <h2 class="huge-text">ПОРІВНЯННЯ<br><span class="accent-green">ЕПОХ БОРОТЬБИ</span></h2>
+      <div class="container">
+        <h2 class="huge-text">
+          ПОРІВНЯННЯ<br /><span class="accent-green">ЕПОХ БОРОТЬБИ</span>
+        </h2>
 
-            <div class="comparison-grid">
-                <div class="comparison-card imperial">
-                    <div class="era-badge" style="background: #e53935;">Імперська доба</div>
-                    <h3>XVII-XIX століття</h3>
-                    <div class="comparison-content">
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-gavel"></i></span>
-                            <div>
-                                <strong>Методи:</strong>
-                                <p>Військова сила, знищення козацтва, ліквідація автономії</p>
-                            </div>
-                        </div>
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-file-lines"></i></span>
-                            <div>
-                                <strong>Закони:</strong>
-                                <p>Валуєвський циркуляр (1863), Емський указ (1876) - заборона української мови</p>
-                            </div>
-                        </div>
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-landmark"></i></span>
-                            <div>
-                                <strong>Ключові події:</strong>
-                                <p>Знищення Січі (1775), Коліївщина (1768), повстання Мазепи (1708)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="comparison-card soviet">
-                    <div class="era-badge" style="background: #b71c1c;">Радянська доба</div>
-                    <h3>XX століття</h3>
-                    <div class="comparison-content">
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-skull-crossbones"></i></span>
-                            <div>
-                                <strong>Методи:</strong>
-                                <p>Геноцид (Голодомор), масові репресії, депортації цілих народів</p>
-                            </div>
-                        </div>
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-ban"></i></span>
-                            <div>
-                                <strong>Політика:</strong>
-                                <p>Русифікація, знищення інтелігенції, "Розстріляне відродження"</p>
-                            </div>
-                        </div>
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-shield-halved"></i></span>
-                            <div>
-                                <strong>Опір:</strong>
-                                <p>УНР (1917-1921), УПА (1942-1954), дисидентський рух (1960-80)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="comparison-card modern">
-                    <div class="era-badge" style="background: #1e88e5;">Сучасна доба</div>
-                    <h3>XXI століття</h3>
-                    <div class="comparison-content">
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-location-dot"></i></span>
-                            <div>
-                                <strong>Методи:</strong>
-                                <p>Гібридна війна, пропаганда, кібератаки, повномасштабна агресія</p>
-                            </div>
-                        </div>
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-globe"></i></span>
-                            <div>
-                                <strong>Підтримка:</strong>
-                                <p>Міжнародна підтримка, санкції проти РФ, військова допомога</p>
-                            </div>
-                        </div>
-                        <div class="comp-item">
-                            <span class="comp-icon"><i class="fa-solid fa-trophy"></i></span>
-                            <div>
-                                <strong>Перемоги:</strong>
-                                <p>Майдан (2004, 2014), героїчна оборона (2022-), європейська інтеграція</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="comparison-grid">
+          <div class="comparison-card imperial">
+            <div class="era-badge" style="background: #e53935">
+              Імперська доба
             </div>
+            <h3>XVII-XIX століття</h3>
+            <div class="comparison-content">
+              <div class="comp-item">
+                <span class="comp-icon"><i class="fa-solid fa-gavel"></i></span>
+                <div>
+                  <strong>Методи:</strong>
+                  <p>Військова сила, знищення козацтва, ліквідація автономії</p>
+                </div>
+              </div>
+              <div class="comp-item">
+                <span class="comp-icon"
+                  ><i class="fa-solid fa-file-lines"></i
+                ></span>
+                <div>
+                  <strong>Закони:</strong>
+                  <p>
+                    Валуєвський циркуляр (1863), Емський указ (1876) - заборона
+                    української мови
+                  </p>
+                </div>
+              </div>
+              <div class="comp-item">
+                <span class="comp-icon"
+                  ><i class="fa-solid fa-landmark"></i
+                ></span>
+                <div>
+                  <strong>Ключові події:</strong>
+                  <p>
+                    Знищення Січі (1775), Коліївщина (1768), повстання Мазепи
+                    (1708)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-card soviet">
+            <div class="era-badge" style="background: #b71c1c">
+              Радянська доба
+            </div>
+            <h3>XX століття</h3>
+            <div class="comparison-content">
+              <div class="comp-item">
+                <span class="comp-icon"
+                  ><i class="fa-solid fa-skull-crossbones"></i
+                ></span>
+                <div>
+                  <strong>Методи:</strong>
+                  <p>
+                    Геноцид (Голодомор), масові репресії, депортації цілих
+                    народів
+                  </p>
+                </div>
+              </div>
+              <div class="comp-item">
+                <span class="comp-icon"><i class="fa-solid fa-ban"></i></span>
+                <div>
+                  <strong>Політика:</strong>
+                  <p>
+                    Русифікація, знищення інтелігенції, "Розстріляне
+                    відродження"
+                  </p>
+                </div>
+              </div>
+              <div class="comp-item">
+                <span class="comp-icon"
+                  ><i class="fa-solid fa-shield-halved"></i
+                ></span>
+                <div>
+                  <strong>Опір:</strong>
+                  <p>
+                    УНР (1917-1921), УПА (1942-1954), дисидентський рух
+                    (1960-80)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-card modern">
+            <div class="era-badge" style="background: #1e88e5">
+              Сучасна доба
+            </div>
+            <h3>XXI століття</h3>
+            <div class="comparison-content">
+              <div class="comp-item">
+                <span class="comp-icon"
+                  ><i class="fa-solid fa-location-dot"></i
+                ></span>
+                <div>
+                  <strong>Методи:</strong>
+                  <p>
+                    Гібридна війна, пропаганда, кібератаки, повномасштабна
+                    агресія
+                  </p>
+                </div>
+              </div>
+              <div class="comp-item">
+                <span class="comp-icon"><i class="fa-solid fa-globe"></i></span>
+                <div>
+                  <strong>Підтримка:</strong>
+                  <p>
+                    Міжнародна підтримка, санкції проти РФ, військова допомога
+                  </p>
+                </div>
+              </div>
+              <div class="comp-item">
+                <span class="comp-icon"
+                  ><i class="fa-solid fa-trophy"></i
+                ></span>
+                <div>
+                  <strong>Перемоги:</strong>
+                  <p>
+                    Майдан (2004, 2014), героїчна оборона (2022-), європейська
+                    інтеграція
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #інфографіка -->
     <section class="slide infographic-slide">
-        <div class="container">
-            <h2 class="huge-text accent-green">ЦИФРИ<br>ТА ФАКТИ</h2>
-            <p class="subtitle">Візуалізація історичних даних</p>
+      <div class="container">
+        <h2 class="huge-text accent-green">ЦИФРИ<br />ТА ФАКТИ</h2>
+        <p class="subtitle">Візуалізація історичних даних</p>
 
-            <div class="infographic-grid">
-                <div class="info-block">
-                    <h3>Хронологія втрат автономії</h3>
-                    <div class="timeline-bar">
-                        <div class="bar-segment" style="width: 20%; background: #e53935;">
-                            <span>1654</span>
-                            <p>Переяслав</p>
-                        </div>
-                        <div class="bar-segment" style="width: 20%; background: #d32f2f;">
-                            <span>1709</span>
-                            <p>Полтава</p>
-                        </div>
-                        <div class="bar-segment" style="width: 20%; background: #c62828;">
-                            <span>1775</span>
-                            <p>Січ</p>
-                        </div>
-                        <div class="bar-segment" style="width: 20%; background: #b71c1c;">
-                            <span>1876</span>
-                            <p>Емський указ</p>
-                        </div>
-                        <div class="bar-segment" style="width: 20%; background: #1e88e5;">
-                            <span>1991</span>
-                            <p>Незалежність!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-block">
-                    <h3>Голодомор: географія трагедії</h3>
-                    <div class="region-stats">
-                        <div class="region-bar">
-                            <div class="region-name">Київщина</div>
-                            <div class="bar-fill" style="width: 85%; background: #e53935;">85%</div>
-                        </div>
-                        <div class="region-bar">
-                            <div class="region-name">Харківщина</div>
-                            <div class="bar-fill" style="width: 90%; background: #d32f2f;">90%</div>
-                        </div>
-                        <div class="region-bar">
-                            <div class="region-name">Одещина</div>
-                            <div class="bar-fill" style="width: 75%; background: #c62828;">75%</div>
-                        </div>
-                        <div class="region-bar">
-                            <div class="region-name">Вінниччина</div>
-                            <div class="bar-fill" style="width: 80%; background: #b71c1c;">80%</div>
-                        </div>
-                    </div>
-                    <p class="info-note">% сіл, що постраждали від голоду</p>
-                </div>
-
-                <div class="info-block full-width">
-                    <h3>Війна 2014-2026: втрати РФ</h3>
-                    <div class="casualties-grid">
-                        <div class="casualty-item">
-                            <div class="casualty-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-                            <div class="casualty-number">1,254,000+</div>
-                            <div class="casualty-label">особового складу</div>
-                        </div>
-                        <div class="casualty-item">
-                            <div class="casualty-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                            <div class="casualty-number">11,600+</div>
-                            <div class="casualty-label">танків</div>
-                        </div>
-                        <div class="casualty-item">
-                            <div class="casualty-icon"><i class="fa-solid fa-jet-fighter"></i></div>
-                            <div class="casualty-number">430+</div>
-                            <div class="casualty-label">літаків</div>
-                        </div>
-                        <div class="casualty-item">
-                            <div class="casualty-icon"><i class="fa-solid fa-ship"></i></div>
-                            <div class="casualty-number">29</div>
-                            <div class="casualty-label">кораблів</div>
-                        </div>
-                        <div class="casualty-item">
-                            <div class="casualty-icon"><i class="fa-solid fa-truck-monster"></i></div>
-                            <div class="casualty-number">24,000+</div>
-                            <div class="casualty-label">броньованих машин</div>
-                        </div>
-                        <div class="casualty-item">
-                            <div class="casualty-icon"><i class="fa-solid fa-rocket"></i></div>
-                            <div class="casualty-number">4,200+</div>
-                            <div class="casualty-label">крилатих ракет</div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="info-block full-width">
-                    <h3>Міжнародна підтримка України</h3>
-                    <div class="support-countries">
-                        <div class="country-support">
-                            <span class="flag flag-text">US</span>
-                            <div class="country-name">США</div>
-                            <div class="support-bar" style="width: 95%;">$75+ млрд</div>
-                        </div>
-                        <div class="country-support">
-                            <span class="flag flag-text">EU</span>
-                            <div class="country-name">ЄС</div>
-                            <div class="support-bar" style="width: 85%;">$70+ млрд</div>
-                        </div>
-                        <div class="country-support">
-                            <span class="flag flag-text">UK</span>
-                            <div class="country-name">Велика Британія</div>
-                            <div class="support-bar" style="width: 70%;">$12+ млрд</div>
-                        </div>
-                        <div class="country-support">
-                            <span class="flag flag-text">DE</span>
-                            <div class="country-name">Німеччина</div>
-                            <div class="support-bar" style="width: 65%;">$10+ млрд</div>
-                        </div>
-                        <div class="country-support">
-                            <span class="flag flag-text">PL</span>
-                            <div class="country-name">Польща</div>
-                            <div class="support-bar" style="width: 55%;">$3+ млрд</div>
-                        </div>
-                        <div class="country-support">
-                            <span class="flag flag-text">CA</span>
-                            <div class="country-name">Канада</div>
-                            <div class="support-bar" style="width: 50%;">$5+ млрд</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="infographic-grid">
+          <div class="info-block">
+            <h3>Хронологія втрат автономії</h3>
+            <div class="timeline-bar">
+              <div
+                class="bar-segment"
+                style="width: 20%; background: #e53935"
+                tabindex="0"
+                role="button"
+                aria-label="Деталі про втрату автономії: 1654 - Переяслав"
+              >
+                <span>1654</span>
+                <p>Переяслав</p>
+              </div>
+              <div
+                class="bar-segment"
+                style="width: 20%; background: #d32f2f"
+                tabindex="0"
+                role="button"
+                aria-label="Деталі про втрату автономії: 1709 - Полтава"
+              >
+                <span>1709</span>
+                <p>Полтава</p>
+              </div>
+              <div
+                class="bar-segment"
+                style="width: 20%; background: #c62828"
+                tabindex="0"
+                role="button"
+                aria-label="Деталі про втрату автономії: 1775 - Січ"
+              >
+                <span>1775</span>
+                <p>Січ</p>
+              </div>
+              <div
+                class="bar-segment"
+                style="width: 20%; background: #b71c1c"
+                tabindex="0"
+                role="button"
+                aria-label="Деталі про втрату автономії: 1876 - Емський указ"
+              >
+                <span>1876</span>
+                <p>Емський указ</p>
+              </div>
+              <div
+                class="bar-segment"
+                style="width: 20%; background: #1e88e5"
+                tabindex="0"
+                role="button"
+                aria-label="Деталі про втрату автономії: 1991 - Незалежність!"
+              >
+                <span>1991</span>
+                <p>Незалежність!</p>
+              </div>
             </div>
+          </div>
+
+          <div class="info-block">
+            <h3>Голодомор: географія трагедії</h3>
+            <div class="region-stats">
+              <div class="region-bar">
+                <div class="region-name">Київщина</div>
+                <div class="bar-fill" style="width: 85%; background: #e53935">
+                  85%
+                </div>
+              </div>
+              <div class="region-bar">
+                <div class="region-name">Харківщина</div>
+                <div class="bar-fill" style="width: 90%; background: #d32f2f">
+                  90%
+                </div>
+              </div>
+              <div class="region-bar">
+                <div class="region-name">Одещина</div>
+                <div class="bar-fill" style="width: 75%; background: #c62828">
+                  75%
+                </div>
+              </div>
+              <div class="region-bar">
+                <div class="region-name">Вінниччина</div>
+                <div class="bar-fill" style="width: 80%; background: #b71c1c">
+                  80%
+                </div>
+              </div>
+            </div>
+            <p class="info-note">% сіл, що постраждали від голоду</p>
+          </div>
+
+          <div class="info-block full-width">
+            <h3>Війна 2014-2026: втрати РФ</h3>
+            <div class="casualties-grid">
+              <div class="casualty-item">
+                <div class="casualty-icon">
+                  <i class="fa-solid fa-helmet-safety"></i>
+                </div>
+                <div class="casualty-number">1,254,000+</div>
+                <div class="casualty-label">особового складу</div>
+              </div>
+              <div class="casualty-item">
+                <div class="casualty-icon">
+                  <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <div class="casualty-number">11,600+</div>
+                <div class="casualty-label">танків</div>
+              </div>
+              <div class="casualty-item">
+                <div class="casualty-icon">
+                  <i class="fa-solid fa-jet-fighter"></i>
+                </div>
+                <div class="casualty-number">430+</div>
+                <div class="casualty-label">літаків</div>
+              </div>
+              <div class="casualty-item">
+                <div class="casualty-icon">
+                  <i class="fa-solid fa-ship"></i>
+                </div>
+                <div class="casualty-number">29</div>
+                <div class="casualty-label">кораблів</div>
+              </div>
+              <div class="casualty-item">
+                <div class="casualty-icon">
+                  <i class="fa-solid fa-truck-monster"></i>
+                </div>
+                <div class="casualty-number">24,000+</div>
+                <div class="casualty-label">броньованих машин</div>
+              </div>
+              <div class="casualty-item">
+                <div class="casualty-icon">
+                  <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="casualty-number">4,200+</div>
+                <div class="casualty-label">крилатих ракет</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-block full-width">
+            <h3>Міжнародна підтримка України</h3>
+            <div class="support-countries">
+              <div class="country-support">
+                <span class="flag flag-text">US</span>
+                <div class="country-name">США</div>
+                <div class="support-bar" style="width: 95%">$75+ млрд</div>
+              </div>
+              <div class="country-support">
+                <span class="flag flag-text">EU</span>
+                <div class="country-name">ЄС</div>
+                <div class="support-bar" style="width: 85%">$70+ млрд</div>
+              </div>
+              <div class="country-support">
+                <span class="flag flag-text">UK</span>
+                <div class="country-name">Велика Британія</div>
+                <div class="support-bar" style="width: 70%">$12+ млрд</div>
+              </div>
+              <div class="country-support">
+                <span class="flag flag-text">DE</span>
+                <div class="country-name">Німеччина</div>
+                <div class="support-bar" style="width: 65%">$10+ млрд</div>
+              </div>
+              <div class="country-support">
+                <span class="flag flag-text">PL</span>
+                <div class="country-name">Польща</div>
+                <div class="support-bar" style="width: 55%">$3+ млрд</div>
+              </div>
+              <div class="country-support">
+                <span class="flag flag-text">CA</span>
+                <div class="country-name">Канада</div>
+                <div class="support-bar" style="width: 50%">$5+ млрд</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #вікторина -->
     <section class="slide quiz-slide">
-        <div class="container">
-            <h2 class="huge-text">ПЕРЕВІР СВОЇ<br><span class="accent-green">ЗНАННЯ</span></h2>
-            <p class="subtitle">Інтерактивна вікторина з історії України — 10 питань</p>
+      <div class="container">
+        <h2 class="huge-text">
+          ПЕРЕВІР СВОЇ<br /><span class="accent-green">ЗНАННЯ</span>
+        </h2>
+        <p class="subtitle">
+          Інтерактивна вікторина з історії України — 10 питань
+        </p>
 
-            <div class="quiz-container" id="quizContainer">
-                <div class="quiz-progress">
-                    <div class="quiz-progress-bar" id="quizProgressBar"></div>
-                </div>
-                <div class="quiz-counter" id="quizCounter">Питання 1 з 10</div>
-                <div class="quiz-question-wrap" id="quizQuestionWrap">
-                </div>
-                <div class="quiz-feedback" id="quizFeedback"></div>
-                <button class="quiz-next-btn" id="quizNextBtn" style="display:none;">Наступне питання <i
-                        class="fa-solid fa-arrow-right"></i></button>
-                <div class="quiz-result" id="quizResult" style="display:none;">
-                    <div class="quiz-result-icon"><i class="fa-solid fa-trophy"></i></div>
-                    <h3 id="quizResultTitle">&nbsp;</h3>
-                    <p id="quizResultText"></p>
-                    <div class="quiz-score" id="quizScore"></div>
-                    <button class="quiz-restart-btn" id="quizRestartBtn"><i class="fa-solid fa-rotate-right"></i> Пройти
-                        ще раз</button>
-                </div>
+        <div class="quiz-container" id="quizContainer">
+          <div class="quiz-progress">
+            <div class="quiz-progress-bar" id="quizProgressBar"></div>
+          </div>
+          <div class="quiz-counter" id="quizCounter">Питання 1 з 10</div>
+          <div class="quiz-question-wrap" id="quizQuestionWrap"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+          <button class="quiz-next-btn" id="quizNextBtn" style="display: none">
+            Наступне питання <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <div class="quiz-result" id="quizResult" style="display: none">
+            <div class="quiz-result-icon">
+              <i class="fa-solid fa-trophy"></i>
             </div>
-
-            <div class="did-you-know">
-                <h3><i class="fa-solid fa-lightbulb" style="color: var(--color-green); margin-right: 8px;"></i> А ви
-                    знали?</h3>
-                <div class="facts-carousel">
-                    <div class="fact-item active">
-                        <p><strong>Українська мова</strong> була заборонена офіційно аж 5 разів протягом історії!</p>
-                    </div>
-                    <div class="fact-item">
-                        <p><strong>Тарас Шевченко</strong> написав більшість своїх творів, будучи кріпаком.</p>
-                    </div>
-                    <div class="fact-item">
-                        <p><strong>Бій під Крутами</strong> тривав всього 4 години, але став символом героїзму на віки.
-                        </p>
-                    </div>
-                    <div class="fact-item">
-                        <p><strong>Захисники Азовсталі</strong> тримали оборону 86 днів проти переважаючих сил ворога.
-                        </p>
-                    </div>
-                    <div class="fact-item">
-                        <p><strong>Байрактар</strong> став символом першого етапу війни — турецькі дрони ефективно
-                            знищували ворожі колони.</p>
-                    </div>
-                </div>
-            </div>
+            <h3 id="quizResultTitle">&nbsp;</h3>
+            <p id="quizResultText"></p>
+            <div class="quiz-score" id="quizScore"></div>
+            <button class="quiz-restart-btn" id="quizRestartBtn">
+              <i class="fa-solid fa-rotate-right"></i> Пройти ще раз
+            </button>
+          </div>
         </div>
+
+        <div class="did-you-know">
+          <h3>
+            <i
+              class="fa-solid fa-lightbulb"
+              style="color: var(--color-green); margin-right: 8px"
+            ></i>
+            А ви знали?
+          </h3>
+          <div class="facts-carousel">
+            <div class="fact-item active">
+              <p>
+                <strong>Українська мова</strong> була заборонена офіційно аж 5
+                разів протягом історії!
+              </p>
+            </div>
+            <div class="fact-item">
+              <p>
+                <strong>Тарас Шевченко</strong> написав більшість своїх творів,
+                будучи кріпаком.
+              </p>
+            </div>
+            <div class="fact-item">
+              <p>
+                <strong>Бій під Крутами</strong> тривав всього 4 години, але
+                став символом героїзму на віки.
+              </p>
+            </div>
+            <div class="fact-item">
+              <p>
+                <strong>Захисники Азовсталі</strong> тримали оборону 86 днів
+                проти переважаючих сил ворога.
+              </p>
+            </div>
+            <div class="fact-item">
+              <p>
+                <strong>Байрактар</strong> став символом першого етапу війни —
+                турецькі дрони ефективно знищували ворожі колони.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- #модалка -->
     <div class="map-modal-overlay" id="mapModalOverlay">
-        <div class="map-modal">
-            <button class="map-modal-close" id="mapModalClose" aria-label="Закрити карту"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="map-modal-title" id="mapModalTitle">&nbsp;</h3>
-            <div class="map-modal-body" id="mapModalBody"></div>
-        </div>
+      <div class="map-modal">
+        <button
+          class="map-modal-close"
+          id="mapModalClose"
+          aria-label="Закрити карту"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 class="map-modal-title" id="mapModalTitle">&nbsp;</h3>
+        <div class="map-modal-body" id="mapModalBody"></div>
+      </div>
     </div>
 
-
     <!-- #лайтбокс -->
-    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Закрити зображення">×</button>
-        <img id="lightboxImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            alt="">
+    <div
+      class="lightbox-overlay"
+      id="lightboxOverlay"
+      onclick="closeLightbox()"
+    >
+      <button
+        class="lightbox-close"
+        onclick="closeLightbox()"
+        aria-label="Закрити зображення"
+      >
+        ×
+      </button>
+      <img
+        id="lightboxImage"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        alt=""
+      />
     </div>
 
     <!-- #заклик -->
     <section class="slide cta-slide">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="huge-text">ПАМ'ЯТАЙ<br><span class="accent-green">СВОЮ ІСТОРІЮ</span></h2>
-                <p class="cta-text">Кожен українець повинен знати свою історію, пам'ятати героїв та продовжувати
-                    боротьбу за незалежність.</p>
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="huge-text">
+            ПАМ'ЯТАЙ<br /><span class="accent-green">СВОЮ ІСТОРІЮ</span>
+          </h2>
+          <p class="cta-text">
+            Кожен українець повинен знати свою історію, пам'ятати героїв та
+            продовжувати боротьбу за незалежність.
+          </p>
 
-                <div class="cta-actions">
-                    <a href="#timeline" class="cta-btn primary">Переглянути таймлайн</a>
-                    <a href="#videos" class="cta-btn secondary">Дивитись відео</a>
-                    <a href="#gallery" class="cta-btn secondary">Відкрити галерею</a>
-                </div>
+          <div class="cta-actions">
+            <a href="#timeline" class="cta-btn primary">Переглянути таймлайн</a>
+            <a href="#videos" class="cta-btn secondary">Дивитись відео</a>
+            <a href="#gallery" class="cta-btn secondary">Відкрити галерею</a>
+          </div>
 
-                <div class="final-message">
-                    <h3><svg class="final-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                            <line x1="4" y1="22" x2="4" y2="15" />
-                        </svg> СЛАВА УКРАЇНІ! <svg class="final-icon" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                            <line x1="4" y1="22" x2="4" y2="15" />
-                        </svg></h3>
-                    <p>ГЕРОЯМ СЛАВА!</p>
-                </div>
-            </div>
+          <div class="final-message">
+            <h3>
+              <svg
+                class="final-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                />
+                <line x1="4" y1="22" x2="4" y2="15" />
+              </svg>
+              СЛАВА УКРАЇНІ!
+              <svg
+                class="final-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                />
+                <line x1="4" y1="22" x2="4" y2="15" />
+              </svg>
+            </h3>
+            <p>ГЕРОЯМ СЛАВА!</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- #футер -->
     <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <div class="logo-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 22H22L12 2Z" stroke="#c9eda1" stroke-width="2" />
-                            <path d="M12 10L6 20H18L12 10Z" fill="#c9eda1" />
-                        </svg>
-                    </div>
-                    <span>Боротьба за незалежність</span>
-                </div>
-                <p class="footer-desc">Пізнавальний проект присвячений війнам між Росією та Україною — боротьба за
-                    незалежність</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2L2 22H22L12 2Z"
+                  stroke="#c9eda1"
+                  stroke-width="2"
+                />
+                <path d="M12 10L6 20H18L12 10Z" fill="#c9eda1" />
+              </svg>
             </div>
-
-            <div class="footer-section">
-                <h4>Розділи</h4>
-                <ul>
-                    <li><a href="#timeline">Таймлайн</a></li>
-                    <li><a href="#history">Історичні події</a></li>
-                    <li><a href="#videos">Відео матеріали</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#facts">Факти</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Ресурси</h4>
-                <ul>
-                    <li><a href="https://www.president.gov.ua" target="_blank">Офіс Президента</a></li>
-                    <li><a href="https://www.kmu.gov.ua" target="_blank">Кабінет Міністрів</a></li>
-                    <li><a href="https://www.mil.gov.ua" target="_blank">Міноборони України</a></li>
-                    <li><a href="https://war.ukraine.ua" target="_blank">Про війну</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Слава Україні!</h4>
-                <p style="font-size: 2em; margin: 10px 0;"><i class="fa-solid fa-flag"
-                        style="color: #fdd835; font-size: 48px;"></i></p>
-                <p>Героям Слава!</p>
-            </div>
+            <span>Боротьба за незалежність</span>
+          </div>
+          <p class="footer-desc">
+            Пізнавальний проект присвячений війнам між Росією та Україною —
+            боротьба за незалежність
+          </p>
         </div>
 
-        <div class="footer-bottom">
-            <p>Боротьба за незалежність. 2026</p>
-            <p>Дипломна робота Якимчука Назара</p>
+        <div class="footer-section">
+          <h4>Розділи</h4>
+          <ul>
+            <li><a href="#timeline">Таймлайн</a></li>
+            <li><a href="#history">Історичні події</a></li>
+            <li><a href="#videos">Відео матеріали</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#facts">Факти</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h4>Ресурси</h4>
+          <ul>
+            <li>
+              <a href="https://www.president.gov.ua" target="_blank"
+                >Офіс Президента</a
+              >
+            </li>
+            <li>
+              <a href="https://www.kmu.gov.ua" target="_blank"
+                >Кабінет Міністрів</a
+              >
+            </li>
+            <li>
+              <a href="https://www.mil.gov.ua" target="_blank"
+                >Міноборони України</a
+              >
+            </li>
+            <li>
+              <a href="https://war.ukraine.ua" target="_blank">Про війну</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Слава Україні!</h4>
+          <p style="font-size: 2em; margin: 10px 0">
+            <i
+              class="fa-solid fa-flag"
+              style="color: #fdd835; font-size: 48px"
+            ></i>
+          </p>
+          <p>Героям Слава!</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Боротьба за незалежність. 2026</p>
+        <p>Дипломна робота Якимчука Назара</p>
+      </div>
     </footer>
 
     <!-- #вгору -->
-    <button id="scrollToTop" class="scroll-to-top" title="Повернутися вгору" aria-label="Повернутися вгору">
-        <i class="fa-solid fa-chevron-up"></i>
+    <button
+      id="scrollToTop"
+      class="scroll-to-top"
+      title="Повернутися вгору"
+      aria-label="Повернутися вгору"
+    >
+      <i class="fa-solid fa-chevron-up"></i>
     </button>
 
-
-
-
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
