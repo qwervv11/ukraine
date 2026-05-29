@@ -176,7 +176,7 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    const handleGalleryItemInteraction = function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
@@ -233,13 +233,27 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         lightbox.addEventListener('click', () => {
             lightbox.remove();
+            document.removeEventListener('keydown', closeOnEsc);
         });
 
-        lightboxImg.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+        function closeOnEsc(e) {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', closeOnEsc);
+            }
+        }
+        document.addEventListener('keydown', closeOnEsc);
+    };
+
+    item.addEventListener('click', handleGalleryItemInteraction);
+    item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleGalleryItemInteraction.call(this);
+        }
     });
 });
+
 
 // #картки
 const quoteObserver = new IntersectionObserver((entries) => {
@@ -618,11 +632,19 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
+    const handleBarSegmentInteraction = function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    };
+
+    segment.addEventListener('click', handleBarSegmentInteraction);
+    segment.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleBarSegmentInteraction.call(this);
         }
     });
 });
