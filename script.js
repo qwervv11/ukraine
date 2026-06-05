@@ -176,12 +176,15 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    const handleGalleryClick = function (e) {
+        if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+        if (e.type === 'keydown') e.preventDefault();
+
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
-
         const lightbox = document.createElement('div');
+        lightbox.classList.add('dynamic-lightbox');
         lightbox.style.position = 'fixed';
         lightbox.style.top = '0';
         lightbox.style.left = '0';
@@ -238,7 +241,10 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
-    });
+    };
+
+    item.addEventListener('click', handleGalleryClick);
+    item.addEventListener('keydown', handleGalleryClick);
 });
 
 // #картки
@@ -618,13 +624,19 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
+    const handleBarSegmentClick = function (e) {
+        if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+        if (e.type === 'keydown') e.preventDefault();
+
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
         }
-    });
+    };
+
+    segment.addEventListener('click', handleBarSegmentClick);
+    segment.addEventListener('keydown', handleBarSegmentClick);
 });
 
 // #втрати
@@ -751,10 +763,17 @@ function openLightbox(src) {
 
 function closeLightbox() {
     const overlay = document.getElementById('lightboxOverlay');
-    overlay.classList.remove('active');
+    if (overlay) {
+        overlay.classList.remove('active');
+    }
+
+    document.querySelectorAll('.dynamic-lightbox').forEach(el => el.remove());
     document.body.style.overflow = '';
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') {
+        closeLightbox();
+        if (typeof closeMapModal === 'function') closeMapModal();
+    }
 });
