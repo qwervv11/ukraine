@@ -176,9 +176,9 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
-        const img = this.querySelector('img');
-        const caption = this.querySelector('.gallery-caption');
+    function openGalleryItemLightbox() {
+        const img = item.querySelector('img');
+        const caption = item.querySelector('.gallery-caption');
 
 
         const lightbox = document.createElement('div');
@@ -231,13 +231,34 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
-        lightbox.addEventListener('click', () => {
+        // Accessibility: set focus to the close button
+        closeBtn.focus();
+
+        const closeHandler = () => {
             lightbox.remove();
-        });
+            item.focus(); // Return focus to the trigger element
+            document.removeEventListener('keydown', escapeListener);
+        };
+
+        lightbox.addEventListener('click', closeHandler);
+
+        const escapeListener = (e) => {
+            if (e.key === 'Escape') closeHandler();
+        };
+        document.addEventListener('keydown', escapeListener);
 
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    }
+
+    item.addEventListener('click', openGalleryItemLightbox);
+
+    item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openGalleryItemLightbox();
+        }
     });
 });
 
