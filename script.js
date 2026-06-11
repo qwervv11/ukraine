@@ -176,6 +176,16 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
+
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
@@ -231,8 +241,23 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
-        lightbox.addEventListener('click', () => {
+        // Focus management
+        const previousFocus = document.activeElement;
+        closeBtn.focus();
+
+        const closeLightboxModal = () => {
             lightbox.remove();
+            if (previousFocus) {
+                previousFocus.focus();
+            }
+        };
+
+        lightbox.addEventListener('click', closeLightboxModal);
+
+        // Ensure keyboard accessibility on the close button
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightboxModal();
         });
 
         lightboxImg.addEventListener('click', (e) => {
@@ -534,15 +559,24 @@ const mapEventData = {
     'Крути': { title: 'Бій під Крутами — 1918', body: '<p>29 січня 1918 року біля станції Крути відбувся героїчний бій.</p><p>Кілька сотень студентів та юнкерів стали на шляху більшовицьких військ, які наступали на Київ. Бій тривав лише 4 години, але став символом самопожертви молодого покоління заради незалежної України.</p>' }
 };
 
+let previousMapFocus = null;
+
 function openMapModal(title, body) {
     const overlay = document.getElementById('mapModalOverlay');
     const titleEl = document.getElementById('mapModalTitle');
     const bodyEl = document.getElementById('mapModalBody');
+    const closeBtn = document.getElementById('mapModalClose');
     if (!overlay) return;
+
+    previousMapFocus = document.activeElement;
     titleEl.textContent = title;
     bodyEl.innerHTML = body;
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    if (closeBtn) {
+        closeBtn.focus();
+    }
 }
 
 function closeMapModal() {
@@ -550,6 +584,11 @@ function closeMapModal() {
     if (!overlay) return;
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+
+    if (previousMapFocus) {
+        previousMapFocus.focus();
+        previousMapFocus = null;
+    }
 }
 
 document.getElementById('mapModalOverlay')?.addEventListener('click', function (e) {
@@ -618,6 +657,16 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
+    segment.setAttribute('tabindex', '0');
+    segment.setAttribute('role', 'button');
+
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
+
     segment.addEventListener('click', function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
