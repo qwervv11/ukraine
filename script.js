@@ -176,7 +176,7 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    const openItemLightbox = function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
@@ -238,6 +238,14 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    };
+
+    item.addEventListener('click', openItemLightbox);
+    item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openItemLightbox.call(this);
+        }
     });
 });
 
