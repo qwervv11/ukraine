@@ -176,7 +176,9 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    const handleGalleryClick = function (e) {
+        if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+        if (e.type === 'keydown') e.preventDefault();
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
@@ -238,7 +240,9 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
-    });
+    };
+    item.addEventListener('click', handleGalleryClick);
+    item.addEventListener('keydown', handleGalleryClick);
 });
 
 // #картки
@@ -618,13 +622,17 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
+    const handleSegmentClick = function (e) {
+        if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+        if (e.type === 'keydown') e.preventDefault();
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
         }
-    });
+    };
+    segment.addEventListener('click', handleSegmentClick);
+    segment.addEventListener('keydown', handleSegmentClick);
 });
 
 // #втрати
