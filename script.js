@@ -758,3 +758,15 @@ function closeLightbox() {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
 });
+
+
+// #клавіатура для інтерактивних div
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        const target = e.target.closest('.gallery-item, .bar-segment');
+        if (target) {
+            e.preventDefault();
+            target.click();
+        }
+    }
+});
