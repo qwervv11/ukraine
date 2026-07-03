@@ -714,7 +714,8 @@ html {
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover {
+.gallery-item:hover,
+.gallery-item:focus-visible {
     transform: scale(1.05);
     z-index: 10;
 }
@@ -2591,7 +2592,8 @@ html {
     cursor: pointer;
 }
 
-.bar-segment:hover {
+.bar-segment:hover,
+.bar-segment:focus-visible {
     filter: brightness(1.2);
     transform: scaleY(1.1);
 }
