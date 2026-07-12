@@ -176,7 +176,10 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+
+    const clickHandler = function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
@@ -238,6 +241,14 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    };
+
+    item.addEventListener('click', clickHandler);
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            clickHandler.call(this);
+        }
     });
 });
 
@@ -618,11 +629,22 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
+    segment.setAttribute('tabindex', '0');
+    segment.setAttribute('role', 'button');
+
+    const clickHandler = function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    };
+
+    segment.addEventListener('click', clickHandler);
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            clickHandler.call(this);
         }
     });
 });
