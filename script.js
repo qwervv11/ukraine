@@ -176,7 +176,7 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function () {
+    function galleryItemHandler() {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
 
@@ -238,6 +238,14 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    }
+
+    item.addEventListener('click', galleryItemHandler);
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            galleryItemHandler.call(this);
+        }
     });
 });
 
@@ -618,11 +626,19 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
+    function barSegmentHandler() {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    }
+
+    segment.addEventListener('click', barSegmentHandler);
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            barSegmentHandler.call(this);
         }
     });
 });
