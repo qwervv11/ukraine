@@ -618,11 +618,20 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
-    segment.addEventListener('click', function () {
+    function handleSegmentInteraction() {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    }
+
+    segment.addEventListener('click', handleSegmentInteraction);
+
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleSegmentInteraction.call(this);
         }
     });
 });
