@@ -213,7 +213,7 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxCaption.style.fontWeight = '600';
 
         const closeBtn = document.createElement('button');
-        closeBtn.textContent = '✕';
+        closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         closeBtn.setAttribute('aria-label', 'Закрити');
         closeBtn.style.background = 'none';
         closeBtn.style.border = 'none';
@@ -238,6 +238,13 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    });
+
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
     });
 });
 
@@ -623,6 +630,13 @@ document.querySelectorAll('.bar-segment').forEach(segment => {
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    });
+
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
         }
     });
 });
