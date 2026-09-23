@@ -241,6 +241,15 @@ document.querySelectorAll('.gallery-item').forEach(item => {
     });
 });
 
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === ' ') e.preventDefault();
+            this.click();
+        }
+    });
+});
+
 // #картки
 const quoteObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
@@ -623,6 +632,15 @@ document.querySelectorAll('.bar-segment').forEach(segment => {
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    });
+});
+
+document.querySelectorAll('.bar-segment').forEach(segment => {
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === ' ') e.preventDefault();
+            this.click();
         }
     });
 });
