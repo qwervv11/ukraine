@@ -176,6 +176,12 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
@@ -231,8 +237,19 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
-        lightbox.addEventListener('click', () => {
+        const removeLightbox = () => {
             lightbox.remove();
+            document.removeEventListener('keydown', escHandler);
+        };
+        const escHandler = (e) => {
+            if (e.key === 'Escape') removeLightbox();
+        };
+        document.addEventListener('keydown', escHandler);
+
+        lightbox.addEventListener('click', removeLightbox);
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            removeLightbox();
         });
 
         lightboxImg.addEventListener('click', (e) => {
@@ -556,6 +573,12 @@ document.getElementById('mapModalOverlay')?.addEventListener('click', function (
     if (e.target === this) closeMapModal();
 });
 document.getElementById('mapModalClose')?.addEventListener('click', closeMapModal);
+document.addEventListener('keydown', (e) => {
+    const overlay = document.getElementById('mapModalOverlay');
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
+        closeMapModal();
+    }
+});
 
 // #карусель
 let currentFactIndex = 0;
@@ -618,6 +641,12 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     segment.addEventListener('click', function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
