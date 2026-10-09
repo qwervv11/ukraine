@@ -714,6 +714,11 @@ html {
     transition: transform 0.3s ease;
 }
 
+.gallery-item:focus-visible {
+    outline: 3px solid var(--color-green);
+    outline-offset: 4px;
+}
+
 .gallery-item:hover {
     transform: scale(1.05);
     z-index: 10;
@@ -2589,6 +2594,11 @@ html {
     font-weight: 700;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+.bar-segment:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 4px;
 }
 
 .bar-segment:hover {
