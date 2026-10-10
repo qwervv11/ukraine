@@ -231,13 +231,37 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
-        lightbox.addEventListener('click', () => {
-            lightbox.remove();
-        });
+
 
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+
+        const handleEsc = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', handleEsc);
+            }
+        };
+        document.addEventListener('keydown', handleEsc);
+
+        lightbox.addEventListener('click', () => {
+            lightbox.remove();
+            document.removeEventListener('keydown', handleEsc);
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightbox.remove();
+            document.removeEventListener('keydown', handleEsc);
+        });
+    });
+
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === ' ') e.preventDefault();
+            this.click();
+        }
     });
 });
 
@@ -623,6 +647,12 @@ document.querySelectorAll('.bar-segment').forEach(segment => {
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    });
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === ' ') e.preventDefault();
+            this.click();
         }
     });
 });
