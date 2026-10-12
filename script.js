@@ -176,6 +176,12 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
@@ -237,6 +243,22 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
+        });
+
+        const keydownHandler = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', keydownHandler);
+            }
+        };
+        document.addEventListener('keydown', keydownHandler);
+
+        // Also ensure we remove listener when closed by click
+        lightbox.addEventListener('click', () => {
+            document.removeEventListener('keydown', keydownHandler);
+        });
+        closeBtn.addEventListener('click', () => {
+            document.removeEventListener('keydown', keydownHandler);
         });
     });
 });
@@ -556,6 +578,9 @@ document.getElementById('mapModalOverlay')?.addEventListener('click', function (
     if (e.target === this) closeMapModal();
 });
 document.getElementById('mapModalClose')?.addEventListener('click', closeMapModal);
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMapModal();
+});
 
 // #карусель
 let currentFactIndex = 0;
@@ -618,6 +643,12 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
+    segment.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     segment.addEventListener('click', function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
