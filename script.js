@@ -176,6 +176,12 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
@@ -231,9 +237,19 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
+        const closeOnEscape = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', closeOnEscape);
+            }
+        };
+        document.addEventListener('keydown', closeOnEscape);
+
         lightbox.addEventListener('click', () => {
             lightbox.remove();
+            document.removeEventListener('keydown', closeOnEscape);
         });
+
 
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -618,6 +634,12 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     segment.addEventListener('click', function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
