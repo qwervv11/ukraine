@@ -758,3 +758,13 @@ function closeLightbox() {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
 });
+
+// #доступність клавіатури для інтерактивних елементів
+document.querySelectorAll('.gallery-item, .bar-segment').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === ' ') e.preventDefault();
+            this.click();
+        }
+    });
+});
