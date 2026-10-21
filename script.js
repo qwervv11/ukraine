@@ -231,13 +231,29 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+
         lightbox.addEventListener('click', () => {
             lightbox.remove();
+            document.removeEventListener('keydown', handleEscape);
         });
 
         lightboxImg.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    });
+
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
     });
 });
 
@@ -623,6 +639,13 @@ document.querySelectorAll('.bar-segment').forEach(segment => {
         const data = barEventData[year];
         if (data) {
             openMapModal(data.title, data.body);
+        }
+    });
+
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
         }
     });
 });
