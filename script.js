@@ -225,6 +225,13 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         closeBtn.style.cursor = 'pointer';
         closeBtn.style.fontWeight = '300';
 
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
         lightbox.appendChild(closeBtn);
         lightbox.appendChild(lightboxImg);
         lightbox.appendChild(lightboxCaption);
@@ -233,6 +240,7 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         lightbox.addEventListener('click', () => {
             lightbox.remove();
+            document.removeEventListener('keydown', handleEscape);
         });
 
         lightboxImg.addEventListener('click', (e) => {
@@ -757,4 +765,13 @@ function closeLightbox() {
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
+});
+
+document.querySelectorAll('.gallery-item, .bar-segment').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
 });
