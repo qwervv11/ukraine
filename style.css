@@ -83,6 +83,12 @@
     outline-offset: 2px;
 }
 
+.gallery-item:focus-visible, .bar-segment:focus-visible {
+    outline: 3px solid var(--color-green);
+    outline-offset: 4px;
+    z-index: 10;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: var(--color-black);
