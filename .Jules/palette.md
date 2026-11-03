@@ -1,3 +1,3 @@
-## 2024-05-12 - Added ARIA labels to icon-only buttons and global focus styles
-**Learning:** Found several icon-only buttons missing ARIA labels (e.g. map modal close, lightbox close, scroll to top) and the site completely lacked keyboard focus styles (`:focus-visible`), hindering accessibility.
-**Action:** Always ensure custom modal close buttons and global interactive elements have descriptive ARIA labels, and implement a global `:focus-visible` to aid keyboard navigation.
+## 2024-03-24 - Accessibility for interactive divs
+**Learning:** In a static HTML/JS site lacking semantic interactive elements, interactive wrapper `div`s (like `.gallery-item` and `.bar-segment`) can easily miss full keyboard accessibility. While `tabindex="0"` allows tab focus, they also require explicit `keydown` listeners for 'Enter' and 'Space' mapped to the `.click()` action. Furthermore, dynamically created modals and lightboxes need `Escape` key listeners to allow keyboard users to dismiss them.
+**Action:** When creating or modifying non-button interactive elements (`div`, `span`), always ensure `tabindex="0"`, `role="button"`, and 'Enter'/'Space' keydown listeners are added. Additionally, ensure all custom modals support 'Escape' to close.

@@ -176,6 +176,12 @@ document.querySelectorAll('.stat-number, .fact-number').forEach(stat => {
 
 // #лайтбокс
 document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     item.addEventListener('click', function () {
         const img = this.querySelector('img');
         const caption = this.querySelector('.gallery-caption');
@@ -215,6 +221,11 @@ document.querySelectorAll('.gallery-item').forEach(item => {
         const closeBtn = document.createElement('button');
         closeBtn.textContent = '✕';
         closeBtn.setAttribute('aria-label', 'Закрити');
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightbox.remove();
+            document.removeEventListener('keydown', closeOnEscape);
+        });
         closeBtn.style.background = 'none';
         closeBtn.style.border = 'none';
         closeBtn.style.position = 'absolute';
@@ -231,8 +242,17 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
+        const closeOnEscape = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', closeOnEscape);
+            }
+        };
+        document.addEventListener('keydown', closeOnEscape);
+
         lightbox.addEventListener('click', () => {
             lightbox.remove();
+            document.removeEventListener('keydown', closeOnEscape);
         });
 
         lightboxImg.addEventListener('click', (e) => {
@@ -438,6 +458,12 @@ function renderQuizQuestion() {
     `;
 
     wrap.querySelectorAll('.quiz-option').forEach(btn => {
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
         btn.addEventListener('click', function () {
             if (quizAnswered) return;
             quizAnswered = true;
@@ -557,6 +583,12 @@ document.getElementById('mapModalOverlay')?.addEventListener('click', function (
 });
 document.getElementById('mapModalClose')?.addEventListener('click', closeMapModal);
 
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.getElementById('mapModalOverlay')?.classList.contains('active')) {
+        closeMapModal();
+    }
+});
+
 // #карусель
 let currentFactIndex = 0;
 const factItems = document.querySelectorAll('.fact-item');
@@ -618,6 +650,12 @@ const barEventData = {
 };
 
 document.querySelectorAll('.bar-segment').forEach(segment => {
+    segment.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
     segment.addEventListener('click', function () {
         const year = this.querySelector('span').textContent;
         const data = barEventData[year];
