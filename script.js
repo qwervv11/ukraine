@@ -231,8 +231,24 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
         document.body.appendChild(lightbox);
 
-        lightbox.addEventListener('click', () => {
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                lightbox.remove();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+
+        const closeLightbox = () => {
             lightbox.remove();
+            document.removeEventListener('keydown', handleEscape);
+        };
+
+        lightbox.addEventListener('click', closeLightbox);
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightbox();
         });
 
         lightboxImg.addEventListener('click', (e) => {
@@ -757,4 +773,13 @@ function closeLightbox() {
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
+});
+
+document.querySelectorAll('.gallery-item, .bar-segment').forEach(item => {
+    item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
 });
